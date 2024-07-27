@@ -4,7 +4,8 @@ categories: studying
 tag: [python, cpp, studying, Computer Vision, CV, ai, 3D]
 date: 2024-07-27
 toc: true
-
+sidebar:
+    nav: "docs"
 last_modified_at: 2024-07-7
 ---
 
