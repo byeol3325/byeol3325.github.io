@@ -4,6 +4,8 @@ title:  "내가 보려고 만든 backtracking (using Python)"
 categories: coding_tools
 tag: [python, coding]
 toc: true
+sidebar:
+    nav: "docs"
 date: 2024-07-24
 last_modified_at: 2024-07-24
 ---
@@ -83,3 +85,5 @@ nums = [1, 2, 3]
 backtrack([], nums, 0)
 ```
 
+이것저것 공부하면서 Backtracking에 대해 새로 알게 되는 내용은 계속 추가할 예정입니다. 궁금한 것들이나 추가 및 수정했으면 좋겠는 거 말해주시면 좋을 거 같아요.
+좋은 하루 보내시길 바래요 :)
