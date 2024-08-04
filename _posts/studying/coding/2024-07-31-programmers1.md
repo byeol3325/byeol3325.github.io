@@ -2,7 +2,7 @@
 title:  "[프로그래머스] 고고학 최고의 발견" 
 
 categories: coding
-tag: [python, coding]
+tag: [python, coding, programmers]
 toc: true
 date: 2024-07-30
 last_modified_at: 2024-07-31
@@ -126,3 +126,6 @@ def solution(clockHands):
 | 테스트 9    | 통과 | 7108.19ms | 18.5MB        |
 | 테스트 10   | 통과 | 6295.58ms | 18.5MB        |
 
+
+궁금한 것들이나 추가 및 수정했으면 좋겠는 거 말해주시면 좋을 거 같아요.
+좋은 하루 보내시길 바래요 :)

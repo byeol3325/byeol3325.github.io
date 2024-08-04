@@ -2,7 +2,7 @@
 title:  "[프로그래머스] 수식 최대화" 
 
 categories: coding
-tag: [python, coding]
+tag: [python, coding, programmers]
 toc: true
 date: 2024-07-31
 last_modified_at: 2024-08-01
@@ -189,3 +189,7 @@ def solution(expression):
 | 테스트 28   | 통과 | 0.15ms    | 10.5MB        |
 | 테스트 29   | 통과 | 0.13ms    | 10.5MB        |
 | 테스트 30   | 통과 | 0.14ms    | 10.5MB        |
+
+
+궁금한 것들이나 추가 및 수정했으면 좋겠는 거 말해주시면 좋을 거 같아요.
+좋은 하루 보내시길 바래요 :)
