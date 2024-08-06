@@ -1,7 +1,7 @@
 ---
-title:  "번들 조정(BA: Bundle Adjustment)에 대하여 (in computer vision)" 
+title:  "[Computer Vision] 번들 조정(BA: Bundle Adjustment)에 대하여" 
 categories: studying
-tag: [python, cpp, studying, Computer Vision, CV, ai, 3D]
+tag: [python, cpp, studying, Computer Vision, CV, ai, 3D, 진행중]
 date: 2024-07-27
 author_profile: true
 toc: true

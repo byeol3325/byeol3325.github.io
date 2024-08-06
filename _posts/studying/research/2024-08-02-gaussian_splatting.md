@@ -1,7 +1,7 @@
 ---
 title:  "[논문 리뷰] 3D Gaussian Splatting for Real-Time Radiance Field Rendering" 
 categories: research
-tag: [python, studying, 3D, point cloud, computer vision, cv, paper]
+tag: [python, studying, 3D, point cloud, computer vision, cv, paper, 진행중]
 date: 2024-08-02
 toc: true
 toc_sticky: true

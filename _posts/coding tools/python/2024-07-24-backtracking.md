@@ -1,8 +1,8 @@
 ---
-title:  "내가 보려고 만든 backtracking (using Python)" 
+title:  "내가 보려고 만든 backtracking" 
 
 categories: coding_tools
-tag: [python, coding]
+tag: [python, coding, 덜익숙]
 toc: true
 sidebar:
     nav: "docs"
@@ -85,5 +85,55 @@ nums = [1, 2, 3]
 backtrack([], nums, 0)
 ```
 
+### N-Queen
+```python
+# 1. backtrack으로 문제 풀기
+def possible(y, x, n, row):
+    for i in range(x):
+        if y == row[i]: # 같은 행에 위치
+            return False
+        if abs(y-row[i]) == x-i: # 같은 대각선
+            return False        
+    return True
+
+def queen(x, n, row):
+    if x == n:
+        return 1
+    count = 0
+    
+    for y in range(n):
+        if possible(y, x, n, row):
+            row[x] = y
+            count += queen(x+1, n, row)
+    return count
+
+# 열 col |
+def solution(n):
+    answer = 0
+    row = [0]*n
+    
+    answer = queen(0, n, row)
+    return answer
+```
+
+```python
+# 2. 비트마스크 활용(메모리가 더 적게듦)
+def solveNQueens(n):
+    def dfs(row, cols, diags1, diags2):
+        if row == n:
+            return 1
+        count = 0
+        available_positions = (~(cols | diags1 | diags2)) & ((1 << n) - 1)
+        while available_positions:
+            position = available_positions & -available_positions
+            available_positions &= available_positions - 1
+            count += dfs(row + 1, cols | position, (diags1 | position) << 1, (diags2 | position) >> 1)
+        return count
+    
+    return dfs(0, 0, 0, 0)
+
+def solution(n):
+    return solveNQueens(n)
+```
 이것저것 공부하면서 Backtracking에 대해 새로 알게 되는 내용은 계속 추가할 예정입니다. 궁금한 것들이나 추가 및 수정했으면 좋겠는 거 말해주시면 좋을 거 같아요.
 좋은 하루 보내시길 바래요 :)

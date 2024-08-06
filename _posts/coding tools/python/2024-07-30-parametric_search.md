@@ -2,7 +2,7 @@
 title:  "[알고리즘] Parametric Search" 
 
 categories: coding_tools
-tag: [python, coding, samsung, coding test, sw expert]
+tag: [python, coding, samsung, coding test, sw expert, 다시 봐야함]
 toc: true
 toc_sticky: true
 toc_label: 목차
