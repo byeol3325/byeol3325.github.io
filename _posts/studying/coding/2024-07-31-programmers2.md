@@ -1,5 +1,5 @@
 ---
-title:  "[프로그래머스] 수식 최대화" 
+title:  "[프로그래머스] [Lv2] 수식 최대화" 
 
 categories: coding
 tag: [python, coding, programmers]
@@ -151,9 +151,6 @@ def solution(expression):
     return answer
 
 ```
-
-
-# 테스트 결과
 
 
 # 테스트 결과

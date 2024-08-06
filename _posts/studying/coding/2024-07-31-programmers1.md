@@ -1,5 +1,5 @@
 ---
-title:  "[프로그래머스] 고고학 최고의 발견" 
+title:  "[프로그래머스] [Lv3] 고고학 최고의 발견" 
 
 categories: coding
 tag: [python, coding, programmers]
