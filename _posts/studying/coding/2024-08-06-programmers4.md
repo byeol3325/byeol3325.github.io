@@ -1,5 +1,5 @@
 ---
-title:  "[프로그래머스 Lv3] 등대" 
+title:  "[프로그래머스] [Lv3] 등대" 
 
 categories: coding
 tag: [python, coding, programmers, 다시봐야함]
@@ -14,6 +14,7 @@ last_modified_at: 2024-08-06
 [프로그래머스 등대](https://school.programmers.co.kr/learn/courses/30/lessons/133500)
 
 # 문제 풀이 및 회고
+Tree DP 문제다 [Tree 관련 설명](https://byeol3325.github.io/coding_tools/tree/)
 최소 등대만을 이용해서 모든 항구가 서로 이동할 수 있게 만드는 문제이다. dfs로 쉽게 풀릴 줄 알았는데 안 풀려서 당황했었고 greedy로 어떠한 조건에 맞게 풀려했는데 실패했다.
 그래서 dp와 dfs를 활용해서 문제를 풀어보았지만 set을 써서 remove를 써도 list를 써도 계속 시간 초과가 나고 제대로 짠 거 같은데 안 돼서 결국 힌트를 보게 되었는데 sys.recursionlimit만 적어주니 풀리게 되었다
 다른 사람들 풀이에서 recursionlimit이 없이도 풀리는데 없이 푸는 걸 더 연습해보아야겠다 다시 봐야할 문제로 일단 체크했고 한달내로 다시 풀어봐야겠다
@@ -53,6 +54,8 @@ def solution(n: int, lighthouse:list) -> int:
 ```
 
 # 테스트 결과
+
+
 | 테스트 번호 | 결과  | 실행 시간  | 메모리 사용량 |
 |-------------|-------|-------------|---------------|
 | 테스트 1    | 통과  | 244.94ms    | 67.9MB        |
