@@ -1,5 +1,5 @@
 ---
-title:  "[프로그래머스 Lv3] 상담원 인원" 
+title:  "[프로그래머스] [Lv3] 상담원 인원" 
 
 categories: coding
 tag: [python, coding, programmers]
@@ -115,6 +115,8 @@ def solution(k: int, n: int, reqs: list) -> int:
 
 
 # 테스트 결과
+
+
 | 테스트 번호 | 결과  | 실행 시간  | 메모리 사용량 |
 |-------------|-------|-------------|---------------|
 | 테스트 1    | 통과  | 0.04ms      | 10.2MB        |
