@@ -22,6 +22,72 @@ Transformer는 **Attention Mechanism**을 기반으로 하며, 이미지나 텍�
 
 
 # Transformer 작동 원리
+Transformer마다 작동원리가 좀 다르지만 대략적인 큰 틀에서 간단하게 설명드리겠습니다.
+
+1. **Input Embedding**
+입력된 **단어 시퀀스를 고차원 벡터로 변환**합니다.
+
+<p align="center">
+$
+X = [x_1, x_2, ..., x_n]
+$
+</p>
+
+
+2. **Positional Encoding**
+위치 정보를 추가하여 **순서의 의미를 부여**합니다. **포지셔널 인코딩은 주기함수**로 정의됩니다.
+
+<p align="center">
+$
+PE_{pos, 2i} = \sin (\frac{pos}{10000^{2i / d_{model}}}) \\
+PE_{pos, 2i+1} = \cos (\frac{pos}{10000^{2i / d_{model}}})
+$
+</p>
+
+
+3. **Self-Attention**
+각 단어가 **다른 모든 단어와의 관계를 계산하여 관련성을 평가**합니다.
+세 가지 행렬을 사용해 계산합니다. 쿼리(Q), 키(K), 값(V):
+
+<p align="center">
+$
+Attention(Q, K, V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
+$
+</p>
+
+여기서 $Q=W_QX, K=W_KX, V=W_VX$ 입니다.
+
+
+4. **Multi-Head Attention**
+**여러 개의 어텐션을 병렬로 계산**한 후, **이들을 결합**합니다.
+
+<p align="center">
+$
+MultiHead(Q, K, V) = Concat(head_1, ... head_h)W_O
+$
+</p>
+
+여기서 $head_i = Attention(QW_Q, KW_K, VW_V)$ 입니다.
+
+
+5. **Feed-Forward Network**
+각 위치에서 독립적으로 처리됩니다.
+<p align="center">
+$
+FFN(x) = ReLU(xW_1 + b_1)W_2 + b_2
+$
+</p>
+
+6. **Layer Normalization and Residual Connection**
+각 sub-layer 뒤에 **Layer Normalization과 Residual Connection이 적용**됩니다.
+<p align="center">
+$
+Output = LayerNorm(x + sub-layer(x))
+$
+</p>
+
+7. **Output**
+이후 이 과정이 반복된 후 **최종 출력이 softmax 함수**를 통해 **각 클래스에 대한 확률로 변환**됩니다.
 
 
 
