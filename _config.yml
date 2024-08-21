@@ -127,13 +127,13 @@ author:
       url: "https://github.com/byeol3325"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://byeol3325/github.io"
-    - label: "LinkedIn"  # LinkedIn 추가
-      icon: "fab fa-fw fa-linkedin"  # LinkedIn 아이콘
-      url: "https://www.linkedin.com/in/sungho-moon-byeol3325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"  # LinkedIn 프로필 링크
+      url: "https://byeol3325.github.io/"
+    #- label: "linkedin"  # LinkedIn 추가
+    #  icon: "fab fa-fw fa-linkedin"  # LinkedIn 아이콘
+    #  url: "https://www.linkedin.com/in/sungho-moon-byeol3325"  # LinkedIn 프로필 링크
     #- label: "Twitter"
     #  icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+    #  url: "https://twitter.com/"
     #- label: "Facebook"
     #  icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
