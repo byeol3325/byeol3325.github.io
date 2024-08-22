@@ -104,10 +104,4 @@ GPT (Generative Pretrained Transformer): BERT와 달리 주로 텍스트 생성�
 
 BERT (Bidirectional Encoder Representations from Transformers): NLP에서 문맥을 양방향으로 이해하는 데 뛰어난 성능을 보이는 모델로, 사전 훈련 후 특정 태스크에 미세 조정하는 방식으로 사용됩니다.
 
-
-# 대표 Transformer 모델 in Vision
-**Vision Transformer(ViT)**는 Transformer를 이미지 처리에 적용한 대표적인 예입니다. ViT는 이미지를 패치(patch)라는 작은 조각으로 나누고, 이 패치를 시퀀스 데이터처럼 Transformer에 입력합니다. 패치 간의 관계를 학습함으로써, 이미지의 전체 구조를 이해합니다. ViT는 특히 대규모 데이터셋에서 뛰어난 성능을 보이며, 전통적인 CNN과 비교해도 손색이 없는 성능을 자랑합니다.
-
-Swin Transformer: 
-
-DETR (Detection Transformer): 객체 검출을 위해 Transformer를 적용한 모델로, 이미지 내 객체를 정확하게 탐지하는 데 사용됩니다.
+## GPT와 BERT의 가장 큰 차이

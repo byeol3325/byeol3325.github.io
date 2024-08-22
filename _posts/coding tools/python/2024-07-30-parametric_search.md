@@ -98,7 +98,7 @@ while left <= right: # left, right가 유효한 구간이면 계속 진행
 print(ans)
 ```
 
-출처 : [프로그래머스 Parametric Search](https://www.codetree.ai/missions/8/problems/distributing-integers/introduction)
+출처 : [코드트리 Parametric Search](https://www.codetree.ai/missions/8/problems/distributing-integers/introduction)
 
 ## 예시 2
 <div class="notice--info">
@@ -153,7 +153,7 @@ def parametric_search(arr: list, m: int):
 
 k = parametric_search(arr, m)
 ```
-출처 : [프로그래머스 Parametric Search 2](https://www.codetree.ai/missions/8/problems/distributing-integers/description)
+출처 : [코드트리 Parametric Search 2](https://www.codetree.ai/missions/8/problems/distributing-integers/description)
 
 
 ## 예시 3
