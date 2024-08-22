@@ -147,6 +147,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/byeol3325"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/sungho-moon-byeol3325"
 
 
 # Reading Files
@@ -304,13 +307,13 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
-      read_time: true
+      #author_profile: true
+      #read_time: true
       comments: true
       share: true
-      related: true
+      #related: true
       show_date: true
-      toc_sticky: true
-      toc_label: 목차
+      #toc_sticky: true
+      #toc_label: 목차
       
 date_format: "%Y-%m-%d"
