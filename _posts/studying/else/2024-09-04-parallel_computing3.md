@@ -1,7 +1,7 @@
 ---
 title:  "병렬화, 병렬 프로그래밍 #3" 
 categories: research
-tag: [python, studying, programming, parallel, 병렬화, 진행중]
+tag: [python, studying, programming, parallel, cuda, cpp, c++, thread, 병렬화]
 date: 2024-09-04
 toc: true
 toc_sticky: true
