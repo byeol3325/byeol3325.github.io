@@ -25,86 +25,21 @@ last_modified_at: 2024-09-04 =
 # Thread 재사용 하는 방법
 위와 같은 이유로 같은 수의 thread를 **계속 선언**하고 **할당**하고 **지우고** 하는데에는 시간이 많이 걸리게 되므로 **thread를 처음에 선언**하고 그 뒤로는 선언한 thread에 함수만 넣고 **재사용하여 작동**하도록 함수를 짜게 하면 시간을 좀 더 줄일 수 있게 되었다.
 
-프로젝트 코드를 올릴 순 없지만 알려드리면 속도면에서 약 5~10 퍼센트 정도 향상하게 되었다.
+프로젝트 코드를 올릴 순 없지만 알려드리면 속도면에서 약 20 퍼센트 정도 향상하게 되었다.
 
-```python
-import threading
-import time
+thread를 자주 사용하는 프로젝트에서는 더 큰 폭으로 성능 향상을 보일 것으로 보인다.
 
-def worker(number):
-    print(f"Thread {number} 시작")
-    time.sleep(1)  # 작업이 1초 동안 진행된다고 가정
-    print(f"Thread {number} 완료")
-
-def run_with_new_threads(num_threads):
-    threads = []
-
-    for i in range(num_threads):
-        t = threading.Thread(target=worker, args=(i,))
-        threads.append(t)
-        t.start()
-
-    for t in threads:
-        t.join()
-
-if __name__ == "__main__":
-    start_time = time.time()
-    for _ in range(10): # 10번 호출. thread 선언이 10번 더 들어가게 됨
-        run_with_new_threads(5)
-    end_time = time.time()
-
-print(f"새로운 thread를 매번 사용하는 경우 소요 시간: {end_time - start_time:.2f} 초")
-```
+# thread 짜면서 느낀점들
+- 코드 분석
+가장 중요하면서 기본. 코드에서 어떠한 함수(수식)들이 다른 거와 상과없이 병렬화 진행할 수 있는 지 분석하는 것이 정말 중요하다. 안 그러면 오만 thread 문제 일어나는 듯 ㅋㅋ
+병렬화하지 않아야할 거를 병렬화시키면 결과값이 아예 바껴버리거나, 병렬화를 잘못 사용하면 데드락이 걸리고, 병렬화 할당하는데에 시간이 걸려 오히려 시간이 더 걸릴 수도 있고(이 부분은 직접 실험을 진행해야 알 수 있는 게 대부분인 듯) 되게 고려할 게 많다... 하나씩 병렬화하면서 샘플 코드로 결과를 확인해가면서 실험하자...
 
 
-```python
-import threading
-import time
-from queue import Queue
+- thread 코딩 시 함수 변수 조심!!!
+thread는 디버깅할때 어느 부분이 잘못됐는지 알려주지도 않는다. (이런 xx) 
 
-def worker_reuse(queue):
-    while True:
-        number = queue.get()
-        if number is None:
-            break
-        print(f"Reusable Thread 작업 {number} 시작")
-        time.sleep(1)
-        print(f"Reusable Thread 작업 {number} 완료")
-        queue.task_done()
+![Parallel Error Example]({{site.url}}/assets/images/parallel_error.png)
 
-def run_with_reusable_threads(num_threads):
-    queue = Queue()
-    threads = []
+cpp 기준, 위와 같은 경고 메시지만 뜨고 어디를 잘못 병렬화했는지는 나오지도 않는다 하...
+이것도 하나씩 병렬화하면서 어느 부분을 추가할 때 잘못되는지 잘 봐야할 필요가 있다.
 
-    # Thread 재사용을 위해 미리 생성
-    for _ in range(num_threads):
-        t = threading.Thread(target=worker_reuse, args=(queue,))
-        t.start()
-        threads.append(t)
-
-    return queue, threads
-
-if __name__ == "__main__":
-    num_threads = 5
-    queue, threads = run_with_reusable_threads(num_threads)
-    
-    start_time = time.time()
-    for _ in range(10):  # 10번 호출. thread 재사용
-        # Queue에 작업을 추가
-        for i in range(num_threads):
-            queue.put(i)
-
-        # 모든 작업이 완료될 때까지 대기
-        queue.join()
-
-    # 종료 신호를 보내서 thread 종료
-    for _ in range(num_threads):
-        queue.put(None)
-
-    for t in threads:
-        t.join()
-
-    end_time = time.time()
-
-    print(f"thread를 재사용하는 경우 소요 시간: {end_time - start_time:.2f} 초")
-```
