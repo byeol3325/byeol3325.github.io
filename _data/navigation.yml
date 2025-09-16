@@ -1,13 +1,11 @@
 # main links
 main:
-  - title: "Category"
-    url: /categories/
-  - title: "Tag"
-    url: /tags/
-  - title: "By year"
-    url: /year-archive/
-  - title: "Search"
-    url: /search/
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+  - title: "Categories"
+    url: "/categories/"
 
 docs:
   - title: "다른 글 보시고 싶으시면"
@@ -23,9 +21,6 @@ counts:
   - title: "태그"
     use: false
 
-
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
