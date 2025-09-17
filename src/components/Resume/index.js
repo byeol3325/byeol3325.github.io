@@ -42,7 +42,7 @@ function Resume() {
             </div>
             <div className={styles.profileInfo}>
               <h1 className={styles.name}>SungHo Moon</h1>
-              <p className={styles.title}>Ph.D. Candidate at DGIST</p>
+              <p className={styles.title}>now Ph.D. Candidate at DGIST</p>
               <p className={styles.research}>Computer Vision & AI Research Engineer</p>
               <div className={styles.contact}>
                 <a href="mailto:byul3325@gmail.com">byul3325@gmail.com</a>
@@ -105,11 +105,15 @@ function Resume() {
                         [Coming Soon]
                       </a>
                     )}
-                    {paper.code && (
-                      <a href={paper.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
-                        [Code]
+                    {paper.github && paper.github !== 'confidential' ? (
+                      <a href={paper.github} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                        [GitHub]
                       </a>
-                    )}
+                    ) : paper.github === 'confidential' ? (
+                      <span className={styles.confidentialButton}>
+                        [GitHub: Confidential]
+                      </span>
+                    ) : null}
                   </div>
                 </div>
               </div>
