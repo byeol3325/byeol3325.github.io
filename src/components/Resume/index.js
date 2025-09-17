@@ -74,51 +74,10 @@ function Resume() {
           <h2 className={styles.sectionTitle}>News</h2>
           <ul className={styles.newsList}>
             <li><strong>Sep 2025:</strong> 🏆 Won 1st Place in ICCV 2025 Amazon Grocery Vision Challenge (TAL & STAL tracks)</li>
-            <li><strong>Jul 2025:</strong> Completed projects with Huvitz on real-time 3D reconstruction</li>
-            <li><strong>Dec 2024:</strong> Completed projects with ETRI on pill detection and recognition</li>
-            <li><strong>Nov 2024:</strong> Completed projects with HD Korea Shipbuilding & Offshore Engineering on camera calibration</li>
+            <li><strong>Jul 2025:</strong> ✅ Completed projects with Huvitz on real-time 3D reconstruction</li>
+            <li><strong>Dec 2024:</strong> 💊 Completed projects with ETRI on pill detection and recognition</li>
+            <li><strong>Nov 2024:</strong> 📷 Completed projects with HD Korea Shipbuilding & Offshore Engineering on camera calibration</li>
           </ul>
-        </div>
-      </section>
-
-      {/* Publications Section */}
-      <section id="papers" className={styles.publications}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Publications</h2>
-          <div className={styles.paperList}>
-            {papers.map((paper, index) => (
-              <div key={index} className={styles.paperItem}>
-                <div className={styles.paperContent}>
-                  <h3 className={styles.paperTitle}>{paper.title}</h3>
-                  <p className={styles.paperAuthors}>{paper.authors}</p>
-                  <p className={styles.paperVenue}>{paper.journal}, {paper.date}</p>
-                  {paper.description && (
-                    <p className={styles.paperDescription}>{paper.description}</p>
-                  )}
-                  <div className={styles.paperLinks}>
-                    {paper.url && paper.url !== '#' ? (
-                      <a href={paper.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
-                        [Paper]
-                      </a>
-                    ) : (
-                      <a href="/papers/coming-soon" className={styles.linkButton}>
-                        [Coming Soon]
-                      </a>
-                    )}
-                    {paper.github && paper.github !== 'confidential' ? (
-                      <a href={paper.github} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
-                        [GitHub]
-                      </a>
-                    ) : paper.github === 'confidential' ? (
-                      <span className={styles.confidentialButton}>
-                        [GitHub: Confidential]
-                      </span>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -207,6 +166,47 @@ function Resume() {
               </div>
             </details>
           )}
+        </div>
+      </section>
+
+      {/* Publications Section */}
+      <section id="papers" className={styles.publications}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Publications</h2>
+          <div className={styles.paperList}>
+            {papers.map((paper, index) => (
+              <div key={index} className={styles.paperItem}>
+                <div className={styles.paperContent}>
+                  <h3 className={styles.paperTitle}>{paper.title}</h3>
+                  <p className={styles.paperAuthors}>{paper.authors}</p>
+                  <p className={styles.paperVenue}>{paper.journal}, {paper.date}</p>
+                  {paper.description && (
+                    <p className={styles.paperDescription}>{paper.description}</p>
+                  )}
+                  <div className={styles.paperLinks}>
+                    {paper.url && paper.url !== '#' ? (
+                      <a href={paper.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                        [Paper]
+                      </a>
+                    ) : (
+                      <a href="/papers/coming-soon" className={styles.linkButton}>
+                        [Coming Soon]
+                      </a>
+                    )}
+                    {paper.github && paper.github !== 'confidential' ? (
+                      <a href={paper.github} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                        [GitHub]
+                      </a>
+                    ) : paper.github === 'confidential' ? (
+                      <span className={styles.confidentialButton}>
+                        [GitHub: Confidential]
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -50,9 +50,9 @@ export const projects = [
         title: 'Development of a 3D Pose Estimation and Shape Reconstruction Program for Solid Pharmaceuticals',
         company: 'ETRI',
         date: 'Sep 2024 - Dec 2024',
-        goal: 'To develop a program capable of estimating the 3D pose and reconstructing the shape of solid pharmaceuticals, enabling automatic detection, recognition, and counting of multiple pills in a package without additional training.',
+        goal: 'Developed a prototype system to estimate 3D pose and reconstruct shapes of solid pharmaceuticals, enabling automatic pill detection, recognition, and counting without additional training.',
         role: 'Lead Researcher (80% contribution) - Designed and implemented algorithms for pill pose estimation and 3D shape reconstruction using template matching, color feature analysis, and geometric warping techniques.',
-        achievement: 'Successfully reconstructed the 3D pose and shape of diverse solid pharmaceuticals within pill packages, achieving accurate classification and counting of individual pills. Demonstrated potential for future applications in pharmaceutical management and automated inspection systems.',
+        achievement: 'Demonstrated accurate pill classification and counting, showcasing potential for automated pharmaceutical management.',
         blogUrl: null,
     },
     {
