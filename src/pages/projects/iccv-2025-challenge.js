@@ -63,20 +63,20 @@ export default function ICCV2025Challenge() {
               <h2>🔬 Technical Approach</h2>
               <div className={styles.techGrid}>
                 <div className={styles.techCard}>
+                  <h3>AdaTAD Model</h3>
+                  <p>Leveraged AdaTAD (Adaptive Temporal Action Detection) for robust temporal boundary detection with adaptive thresholding mechanisms</p>
+                </div>
+                <div className={styles.techCard}>
+                  <h3>SAM2 Integration</h3>
+                  <p>Integrated Segment Anything Model 2 (SAM2) for precise spatial segmentation and object-level action localization</p>
+                </div>
+                <div className={styles.techCard}>
                   <h3>Multi-Modal Fusion</h3>
-                  <p>Combined video, audio, and contextual information for comprehensive scene understanding</p>
+                  <p>Combined video, audio, and contextual information through advanced fusion architectures for comprehensive scene understanding</p>
                 </div>
                 <div className={styles.techCard}>
-                  <h3>Temporal Modeling</h3>
-                  <p>Advanced sequence modeling for precise action boundary detection</p>
-                </div>
-                <div className={styles.techCard}>
-                  <h3>Spatial Attention</h3>
-                  <p>Sophisticated attention mechanisms for spatial action localization</p>
-                </div>
-                <div className={styles.techCard}>
-                  <h3>Real-time Optimization</h3>
-                  <p>Efficient architecture design for practical deployment scenarios</p>
+                  <h3>Spatio-Temporal Optimization</h3>
+                  <p>Optimized joint spatio-temporal modeling by combining AdaTAD's temporal precision with SAM2's spatial accuracy</p>
                 </div>
               </div>
             </section>
@@ -84,10 +84,11 @@ export default function ICCV2025Challenge() {
             <section className={styles.section}>
               <h2>💡 Innovation Highlights</h2>
               <ul className={styles.highlights}>
-                <li>Novel multi-modal fusion architecture specifically designed for retail environments</li>
-                <li>State-of-the-art temporal boundary detection with sub-second precision</li>
-                <li>Robust performance across diverse grocery shopping scenarios</li>
-                <li>Efficient model design suitable for edge deployment</li>
+                <li>Successfully combined AdaTAD and SAM2 models for superior TAL & STAL performance</li>
+                <li>Achieved state-of-the-art temporal boundary detection with AdaTAD's adaptive mechanisms</li>
+                <li>Enhanced spatial localization accuracy through SAM2's advanced segmentation capabilities</li>
+                <li>Novel multi-modal fusion architecture specifically optimized for grocery shopping scenarios</li>
+                <li>Efficient joint optimization of temporal and spatial components for real-time performance</li>
               </ul>
             </section>
 

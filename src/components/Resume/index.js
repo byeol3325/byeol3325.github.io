@@ -22,10 +22,14 @@ function Resume() {
           <div className={styles.heroText}>
             <h1 className={styles.heroTitle}>SungHo Moon</h1>
             <h2 className={styles.heroSubtitle}>Computer Vision & AI Research Engineer</h2>
+            <h3 className={styles.heroPosition}>now Ph.D. Candidate, DGIST (Republic of Korea)</h3>
             <p className={styles.heroDescription}>
-              Specializing in <strong>3D Reconstruction</strong>, <strong>Multi-Modal AI</strong>, and <strong>Object Detection</strong>
+              🔹 Specializing in <strong>3D Reconstruction</strong>, <strong>Multi-Modal AI</strong>, and <strong>Object Detection</strong>
               <br />
-              Leading innovative projects across defense, automotive, and healthcare industries
+              📧 byul3325@gmail.com
+              <br />
+              <br />
+              Passionate about <strong>entrepreneurship</strong> and tackling <strong>diverse challenging projects</strong> across various domains including defense, automotive, healthcare, and retail industries.
             </p>
             <div className={styles.heroStats}>
               <div className={styles.stat}>
