@@ -1,4 +1,4 @@
-/* Resume Component Styles - Compact Professional Design */
+/* Resume Component Styles - Compact Professional Design with Galaxy Theme */
 
 .resumeContainer {
   width: 100%;
@@ -6,12 +6,81 @@
   background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 100%);
   color: #e0e0e0;
   padding-top: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Galaxy Background Animation */
+.galaxyBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 200%;
+  background-repeat: repeat;
+  animation: galaxyFall 100s linear infinite;
+}
+
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 50px 50px, #fff, transparent),
+    radial-gradient(1px 1px at 80px 10px, rgba(255,255,255,0.6), transparent);
+  background-size: 200px 200px;
+  opacity: 0.8;
+}
+
+.stars2 {
+  background-image:
+    radial-gradient(1px 1px at 10px 10px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 150px 150px, #fff, transparent),
+    radial-gradient(2px 2px at 60px 180px, rgba(255,255,255,0.7), transparent);
+  background-size: 300px 300px;
+  animation-duration: 150s;
+  animation-delay: 0s;
+  opacity: 0.6;
+}
+
+.stars3 {
+  background-image:
+    radial-gradient(1px 1px at 30px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 110px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 120px 60px, rgba(255,255,255,0.6), transparent);
+  background-size: 250px 250px;
+  animation-duration: 200s;
+  animation-delay: 0s;
+  opacity: 0.7;
+}
+
+@keyframes galaxyFall {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Header Section */
@@ -19,6 +88,31 @@
   padding: 3rem 0 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.starLogo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  animation: float 3s ease-in-out infinite;
+}
+
+.starLogo img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .profileSection {
@@ -27,12 +121,27 @@
   align-items: center;
 }
 
-.profilePhoto {
+.profilePhotoContainer {
+  position: relative;
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
+  overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(100, 181, 246, 0.3);
+}
+
+.profilePhoto {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.profilePhoto.active {
+  opacity: 1;
 }
 
 .profileInfo {
@@ -180,16 +289,33 @@
   line-height: 1.5;
 }
 
-.paperLink {
-  display: inline-block;
+.paperLinks,
+.projectLinks {
+  display: flex;
+  gap: 0.5rem;
   margin-top: 0.5rem;
-  color: #64b5f6;
-  text-decoration: none;
-  font-size: 0.9rem;
+  flex-wrap: wrap;
 }
 
-.paperLink:hover {
-  text-decoration: underline;
+.linkButton {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(100, 181, 246, 0.1);
+  border: 1px solid #64b5f6;
+  border-radius: 15px;
+  color: #64b5f6;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.linkButton:hover {
+  background: rgba(100, 181, 246, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(100, 181, 246, 0.3);
+  text-decoration: none;
+  color: #90caf9;
 }
 
 /* Projects Section */

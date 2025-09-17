@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { introduction, projects, papers, socialLinks } from '@site/src/data/resume';
 import styles from './styles.module.css';
 
 function Resume() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = ['/img/moon.jpg', '/img/moka.jpg'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(prev => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={styles.resumeContainer}>
+      {/* Galaxy Animation Background */}
+      <div className={styles.galaxyBackground}>
+        <div className={styles.stars}></div>
+        <div className={styles.stars2}></div>
+        <div className={styles.stars3}></div>
+      </div>
+
       {/* Header Section */}
       <header className={styles.header}>
         <div className={styles.container}>
+          <div className={styles.starLogo}>
+            <img src="/img/star-logo.svg" alt="Star Logo" />
+          </div>
           <div className={styles.profileSection}>
-            <img src="/img/moon.jpg" alt="SungHo Moon" className={styles.profilePhoto} />
+            <div className={styles.profilePhotoContainer}>
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt="SungHo Moon"
+                  className={`${styles.profilePhoto} ${index === currentImage ? styles.active : ''}`}
+                />
+              ))}
+            </div>
             <div className={styles.profileInfo}>
               <h1 className={styles.name}>SungHo Moon</h1>
               <p className={styles.title}>Ph.D. Candidate at DGIST</p>
@@ -32,9 +62,8 @@ function Resume() {
           <h2 className={styles.sectionTitle}>About</h2>
           <p className={styles.aboutText}>
             I am a Computer Vision researcher specializing in <strong>3D Reconstruction</strong>, <strong>Multi-Modal AI</strong>, and <strong>Object Detection</strong>.
-            Currently pursuing my Ph.D. at DGIST, I have extensive experience collaborating with industry leaders including Hyundai Motor Company,
-            ETRI, and the Ministry of National Defense. My research focuses on developing robust AI systems for real-world applications in
-            defense, automotive, healthcare, and retail domains.
+            Currently pursuing my Ph.D. at DGIST, I have extensive experience collaborating with industry leaders including <strong>Hyundai Motor Company,
+            ETRI, and the Ministry of National Defense and etc.</strong> My research focuses on developing robust AI systems and advancing practical AI technologies that can be directly applied to real-world challenges.
           </p>
         </div>
       </section>
@@ -66,11 +95,22 @@ function Resume() {
                   {paper.description && (
                     <p className={styles.paperDescription}>{paper.description}</p>
                   )}
-                  {paper.url && paper.url !== '#' && (
-                    <a href={paper.url} target="_blank" rel="noopener noreferrer" className={styles.paperLink}>
-                      [Paper]
-                    </a>
-                  )}
+                  <div className={styles.paperLinks}>
+                    {paper.url && paper.url !== '#' ? (
+                      <a href={paper.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                        [Paper]
+                      </a>
+                    ) : (
+                      <a href="/papers/coming-soon" className={styles.linkButton}>
+                        [Coming Soon]
+                      </a>
+                    )}
+                    {paper.code && (
+                      <a href={paper.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                        [Code]
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -87,13 +127,7 @@ function Resume() {
               <div key={index} className={styles.projectItem}>
                 <div className={styles.projectHeader}>
                   <h3 className={styles.projectTitle}>
-                    {project.blogUrl ? (
-                      <a href={project.blogUrl} target="_blank" rel="noopener noreferrer">
-                        {project.title}
-                      </a>
-                    ) : (
-                      project.title
-                    )}
+                    {project.title}
                   </h3>
                   <span className={styles.projectDate}>{project.date}</span>
                 </div>
@@ -102,6 +136,27 @@ function Resume() {
                 {project.achievement && (
                   <p className={styles.projectAchievement}><strong>Achievement:</strong> {project.achievement}</p>
                 )}
+                <div className={styles.projectLinks}>
+                  {project.blogUrl ? (
+                    <a href={project.blogUrl} className={styles.linkButton}>
+                      [Details]
+                    </a>
+                  ) : (
+                    <a href="/projects/coming-soon" className={styles.linkButton}>
+                      [Coming Soon]
+                    </a>
+                  )}
+                  {project.paper && (
+                    <a href={project.paper} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                      [Paper]
+                    </a>
+                  )}
+                  {project.code && (
+                    <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                      [Code]
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -113,13 +168,7 @@ function Resume() {
                   <div key={index + 5} className={styles.projectItem}>
                     <div className={styles.projectHeader}>
                       <h3 className={styles.projectTitle}>
-                        {project.blogUrl ? (
-                          <a href={project.blogUrl} target="_blank" rel="noopener noreferrer">
-                            {project.title}
-                          </a>
-                        ) : (
-                          project.title
-                        )}
+                        {project.title}
                       </h3>
                       <span className={styles.projectDate}>{project.date}</span>
                     </div>
@@ -128,6 +177,27 @@ function Resume() {
                     {project.achievement && (
                       <p className={styles.projectAchievement}><strong>Achievement:</strong> {project.achievement}</p>
                     )}
+                    <div className={styles.projectLinks}>
+                      {project.blogUrl ? (
+                        <a href={project.blogUrl} className={styles.linkButton}>
+                          [Details]
+                        </a>
+                      ) : (
+                        <a href="/projects/coming-soon" className={styles.linkButton}>
+                          [Coming Soon]
+                        </a>
+                      )}
+                      {project.paper && (
+                        <a href={project.paper} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                          [Paper]
+                        </a>
+                      )}
+                      {project.code && (
+                        <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                          [Code]
+                        </a>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
