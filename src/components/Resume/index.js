@@ -9,7 +9,7 @@ function Resume() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage(prev => (prev + 1) % images.length);
-    }, 1000); // 1초마다 변경
+    }, 4000); // 4초마다 변경 (일반적으로 선호되는 속도)
     
     return () => clearInterval(interval);
   }, []);
