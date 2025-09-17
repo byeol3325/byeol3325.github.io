@@ -1,98 +1,171 @@
 import React from 'react';
 import { introduction, projects, papers, socialLinks, skills } from '@site/src/data/resume';
 import styles from './styles.module.css';
-import Markdown from 'react-markdown';
 
 function Resume() {
   return (
     <div className={styles.resumeContainer}>
-      {/* Introduction */}
-      <header className={styles.header}>
-        <h1>{introduction.title}</h1>
-        <p className={styles.subtitle}>{introduction.subtitle}</p>
-        <ul className={styles.descriptionList}>
-          {introduction.description.map((item, index) => (
-            <li key={index}><Markdown>{item}</Markdown></li>
-          ))}
-        </ul>
-      </header>
-
-      {/* Collaboration */}
-      <section className={styles.section}>
-        <h3>Collaboration Experience</h3>
-        <p><Markdown>{introduction.collaboration.text}</Markdown></p>
-        <div className={styles.companyLogos}>
-          {introduction.collaboration.companies.map((company, index) => (
-            <a href={company.url} key={index} target="_blank" rel="noopener noreferrer" title={company.name}>
-              {/* 이미지는 static/img/logos/ 폴더에 저장해야 합니다. */}
-              <img src={`/img/logos/${company.logo}`} alt={company.name} />
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section id="projects" className={styles.section}>
-        <h3>Projects</h3>
-        <div className={styles.projectList}>
-          {projects.map((project, index) => (
-            <div key={index} className={styles.projectItem}>
-              <h4>{project.title} <span className={styles.projectMeta}>- {project.company} ({project.date})</span></h4>
-              <p><strong>Goal:</strong> {project.goal}</p>
-              <p><strong>Role:</strong> {project.role}</p>
-              <p><strong>Achievement:</strong> {project.achievement}</p>
-              <div className={styles.projectLinks}>
-                {project.blogUrl ? (
-                  <a href={project.blogUrl} target="_blank" rel="noopener noreferrer" className={styles.blogLink}>
-                    Read Blog Post ✨
-                  </a>
-                ) : (
-                  <span className={styles.comingSoon}>Blog Post Coming Soon ⏳</span>
-                )}
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroText}>
+            <h1 className={styles.heroTitle}>SungHo Moon</h1>
+            <h2 className={styles.heroSubtitle}>Computer Vision & AI Research Engineer</h2>
+            <p className={styles.heroDescription}>
+              Specializing in <strong>3D Reconstruction</strong>, <strong>Multi-Modal AI</strong>, and <strong>Object Detection</strong>
+              <br />
+              Leading innovative projects across defense, automotive, and healthcare industries
+            </p>
+            <div className={styles.heroStats}>
+              <div className={styles.stat}>
+                <span className={styles.statNumber}>9+</span>
+                <span className={styles.statLabel}>Major Projects</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statNumber}>8+</span>
+                <span className={styles.statLabel}>Industry Partners</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statNumber}>4+</span>
+                <span className={styles.statLabel}>Years Experience</span>
               </div>
             </div>
-          ))}
+            <div className={styles.heroButtons}>
+              <a href="#projects" className={styles.ctaButton}>View Projects</a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          <div className={styles.heroImage}>
+            <img src="/img/moka.jpg" alt="SungHo Moon" className={styles.profileImage} />
+          </div>
         </div>
       </section>
 
-      {/* Papers */}
-      {papers.length > 0 && (
-        <section id="papers" className={styles.section}>
-          <h3>Papers</h3>
-          <div className={styles.paperList}>
-            {papers.map((paper, index) => (
-              <div key={index} className={styles.paperItem}>
-                <h4><a href={paper.url} target="_blank" rel="noopener noreferrer">{paper.title}</a></h4>
-                <p><em>{paper.journal}</em></p>
-                <p>{paper.description}</p>
+      {/* Expertise Areas */}
+      <section className={styles.expertise}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Core Expertise</h2>
+          <div className={styles.expertiseGrid}>
+            <div className={styles.expertiseCard}>
+              <div className={styles.expertiseIcon}>🔍</div>
+              <h3>3D Computer Vision</h3>
+              <p>3D Reconstruction, Bundle Adjustment, Pose Graph Optimization</p>
+            </div>
+            <div className={styles.expertiseCard}>
+              <div className={styles.expertiseIcon}>🤖</div>
+              <h3>Multi-Modal AI</h3>
+              <p>Multi-camera systems, LiDAR integration, Sensor fusion</p>
+            </div>
+            <div className={styles.expertiseCard}>
+              <div className={styles.expertiseIcon}>🎯</div>
+              <h3>Object Detection</h3>
+              <p>2D/3D Object Detection, Real-time optimization, Edge deployment</p>
+            </div>
+            <div className={styles.expertiseCard}>
+              <div className={styles.expertiseIcon}>⚡</div>
+              <h3>Performance Optimization</h3>
+              <p>Multi-threading, Memory optimization, Algorithm acceleration</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Collaboration */}
+      <section className={styles.collaboration}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Industry Collaboration</h2>
+          <p className={styles.collaborationText}>
+            Proven track record in delivering AI solutions for leading organizations
+          </p>
+          <div className={styles.companyLogos}>
+            {introduction.collaboration.companies.map((company, index) => (
+              <a href={company.url} key={index} target="_blank" rel="noopener noreferrer" title={company.name}>
+                <img src={`/img/logos/${company.logo}`} alt={company.name} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section id="projects" className={styles.projects}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Featured Projects</h2>
+          <div className={styles.projectGrid}>
+            {projects.slice(0, 6).map((project, index) => (
+              <div key={index} className={styles.projectCard}>
+                <div className={styles.projectHeader}>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <span className={styles.projectCompany}>{project.company}</span>
+                </div>
+                <p className={styles.projectGoal}>{project.goal}</p>
+                <div className={styles.projectFooter}>
+                  <span className={styles.projectDate}>{project.date}</span>
+                  {project.blogUrl ? (
+                    <a href={project.blogUrl} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                      Read More →
+                    </a>
+                  ) : (
+                    <span className={styles.comingSoon}>Coming Soon</span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
-        </section>
-      )}
-
-      {/* Skills */}
-      <section className={styles.section}>
-        <h3>Languages and Tools</h3>
-        <div className={styles.skillIcons}>
-          {skills.map((skill, index) => (
-            <img key={index} src={skill.icon} alt={skill.name} title={skill.name} />
-          ))}
         </div>
       </section>
 
-      {/* Connect */}
-      <section className={styles.section}>
-        <h3>Connect with me</h3>
-        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-          <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" style={{width: '40px', height: '40px'}}/>
-        </a>
+      {/* Technical Skills */}
+      <section className={styles.skills}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Technical Stack</h2>
+          <div className={styles.skillCategories}>
+            <div className={styles.skillCategory}>
+              <h3>AI/ML Frameworks</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>PyTorch</span>
+                <span className={styles.skillTag}>OpenCV</span>
+                <span className={styles.skillTag}>Scikit-learn</span>
+              </div>
+            </div>
+            <div className={styles.skillCategory}>
+              <h3>Programming</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Python</span>
+                <span className={styles.skillTag}>C++</span>
+                <span className={styles.skillTag}>C</span>
+              </div>
+            </div>
+            <div className={styles.skillCategory}>
+              <h3>Tools & Platforms</h3>
+              <div className={styles.skillTags}>
+                <span className={styles.skillTag}>Linux</span>
+                <span className={styles.skillTag}>Git</span>
+                <span className={styles.skillTag}>MATLAB</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* GitHub Stats */}
-      <section className={styles.section}>
-          <h3>GitHub Stats</h3>
-          <img src="https://github-readme-stats.vercel.app/api/top-langs?username=byeol3325&show_icons=true&locale=en&layout=compact" alt="byeol3325 GitHub Stats" />
+      {/* Contact */}
+      <section className={styles.contact}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Let's Connect</h2>
+          <p className={styles.contactText}>
+            Interested in collaboration or discussing AI/Computer Vision projects?
+          </p>
+          <div className={styles.contactButtons}>
+            <a href="mailto:byul3325@gmail.com" className={styles.ctaButton}>
+              Get In Touch
+            </a>
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );
