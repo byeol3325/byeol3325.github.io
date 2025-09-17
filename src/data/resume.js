@@ -15,14 +15,14 @@ export const introduction = {
   collaboration: {
     text: 'I have experience collaborating with companies here !!! **About 2D/3D Object Detection, 3D Reconstruction(Bundle Adjustment, Pose Graph Optimization), On-board(memory & time optimization), Camera Calibration(using 1D/2D chessboard), AI ethics, AI module performance improvement in specific environment ...**',
     companies: [
-      { name: 'Hyundai Motor Company', logo: 'hyundai_motor_company.png', url: 'https://www.hyundai.com/' },
-      { name: 'KETI', logo: 'keti.png', url: 'https://www.keti.re.kr/main/main.php' },
-      { name: 'ETRI', logo: 'etri.png', url: 'https://www.etri.re.kr/intro.html' },
-      { name: 'Ministry of National Defense', logo: 'ministry_of_national_defense.png', url: 'https://www.mnd.go.kr/mbshome/mbs/mnd/index.jsp' },
-      { name: 'ROKA Headquarters Insignia', logo: 'headquarters.png', url: 'https://www.army.mil.kr/sites/army/index.do' },
-      { name: 'U.S Department of Defense logo', logo: 'us_dod.png', url: 'https://www.defense.gov/' },
-      { name: 'HD Korea shipbuilding & Offshore Engineering', logo: 'hd_shipping.png', url: 'https://www.hdksoe.co.kr/' },
-      { name: 'Huvitz logo', logo: 'huvitz.png', url: 'https://www.huvitz.com/' },
+      { name: 'Hyundai Motor Company', logo: 'img/hyundai_motor_company.png', url: 'https://www.hyundai.com/' },
+      { name: 'KETI', logo: 'img/keti.png', url: 'https://www.keti.re.kr/main/main.php' },
+      { name: 'ETRI', logo: 'img/etri.png', url: 'https://www.etri.re.kr/intro.html' },
+      { name: 'Ministry of National Defense', logo: 'img/ministry_of_national_defense.png', url: 'https://www.mnd.go.kr/mbshome/mbs/mnd/index.jsp' },
+      { name: 'ROKA Headquarters Insignia', logo: 'img/headquarters.png', url: 'https://www.army.mil.kr/sites/army/index.do' },
+      { name: 'U.S Department of Defense logo', logo: 'img/us_dod.png', url: 'https://www.defense.gov/' },
+      { name: 'HD Korea shipbuilding & Offshore Engineering', logo: 'img/hd_shipping.png', url: 'https://www.hdksoe.co.kr/' },
+      { name: 'Huvitz logo', logo: 'img/huvitz.png', url: 'https://www.huvitz.com/' },
     ],
   },
 };
