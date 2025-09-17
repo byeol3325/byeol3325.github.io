@@ -15,7 +15,7 @@ export default function ICCV2025Challenge() {
             <p className={styles.subtitle}>Multi-modal AI for Temporal Action Localization</p>
             <div className={styles.meta}>
               <span className={styles.company}>Amazon (ICCV 2025 Challenge)</span>
-              <span className={styles.date}>Aug 2025 - Sep 2025</span>
+              <span className={styles.date}>Jul 2025 - Aug 2025</span>
             </div>
           </div>
         </div>

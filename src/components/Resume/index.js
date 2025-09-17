@@ -74,9 +74,9 @@ function Resume() {
           <h2 className={styles.sectionTitle}>News</h2>
           <ul className={styles.newsList}>
             <li><strong>Sep 2025:</strong> 🏆 Won 1st Place in ICCV 2025 Amazon Grocery Vision Challenge (TAL & STAL tracks)</li>
-            <li><strong>Jun 2024:</strong> Started collaboration with Huvitz on real-time 3D reconstruction</li>
-            <li><strong>Jun 2023:</strong> Paper accepted at CVPR Workshop 2023</li>
-            <li><strong>May 2022:</strong> Paper accepted at AAAI 2023</li>
+            <li><strong>Jul 2025:</strong> Completed projects with Huvitz on real-time 3D reconstruction</li>
+            <li><strong>Dec 2024:</strong> Completed projects with ETRI on pill detection and recognition</li>
+            <li><strong>Nov 2024:</strong> Completed projects with HD Korea Shipbuilding & Offshore Engineering on camera calibration</li>
           </ul>
         </div>
       </section>

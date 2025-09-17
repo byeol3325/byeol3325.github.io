@@ -12,8 +12,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`byeol3325/sungho-moon`}
-      description="SungHo Moon's blog">
+      title={`byeol3325 - SungHo Moon`}
+      description="SungHo Moon's Portfolio - Computer Vision & AI Research Engineer">
       <main>
         <Resume />
       </main>
