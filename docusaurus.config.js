@@ -88,12 +88,15 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            to: '/#projects',
+            label: 'Projects',
             position: 'left',
-            label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: '/#papers',
+            label: 'Papers',
+            position: 'left',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
