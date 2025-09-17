@@ -35,7 +35,7 @@ export const projects = [
         goal: 'Develop a 3D reconstruction module using monocular images.',
         role: 'Lead Researcher (80% contribution) – Designed and implemented keypoint matching (SIFT/SURF), computed epipolar geometry, estimated camera relationships, and applied PnP & bundle adjustment (BA). Led the development of the full 3D reconstruction pipeline.',
         achievement: 'Successfully built a 3D reconstruction module that processes monocular images to generate 3D structures.',
-        blogUrl: 'https://byeol3325.github.io/blog/3d-reconstruction-deep-dive',
+        blogUrl: 'https://byeol3325.github.io/projects/3d-reconstruction-deep-dive',
     },
     {
         title: 'Robust Monocular Camera 3D Object Detection in Various Camera Environments',
