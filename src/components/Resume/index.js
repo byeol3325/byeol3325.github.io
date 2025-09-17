@@ -82,7 +82,7 @@ function Resume() {
           <div className={styles.companyLogos}>
             {introduction.collaboration.companies.map((company, index) => (
               <a href={company.url} key={index} target="_blank" rel="noopener noreferrer" title={company.name}>
-                <img src={`/img/logos/${company.logo}`} alt={company.name} />
+                <img src={`/${company.logo}`} alt={company.name} />
               </a>
             ))}
           </div>

@@ -29,6 +29,15 @@ export const introduction = {
 
 export const projects = [
     {
+        title: 'ICCV 2025 Amazon Grocery Vision Challenge - 1st Place Winner',
+        company: 'Amazon (ICCV 2025 Challenge)',
+        date: 'Aug 2024 - Sep 2024',
+        goal: 'Develop a multi-modal AI model for Temporal Action Localization (TAL) and Spatio-Temporal Action Localization (STAL) in grocery shopping scenarios.',
+        role: 'Lead Researcher (Solo) - Designed and implemented multi-modal fusion architecture combining video, audio, and contextual information for precise action detection and localization in retail environments.',
+        achievement: 'Achieved 1st place in both TAL and STAL tracks within just 1 month of development. Successfully deployed multi-modal model achieving state-of-the-art performance on Amazon grocery dataset.',
+        blogUrl: 'https://grocery-vision.github.io/',
+    },
+    {
         title: '3D Building Exterior Reconstruction',
         company: 'KETI',
         date: 'Aug 2020 - Dec 2020',
