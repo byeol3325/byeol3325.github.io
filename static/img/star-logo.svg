@@ -1,0 +1,39 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffc107;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main star -->
+  <path d="M20 2 L24.5 14 L38 14 L28 22 L32.5 34 L20 26 L7.5 34 L12 22 L2 14 L15.5 14 Z" 
+        fill="url(#starGradient)" 
+        stroke="#ffd700" 
+        stroke-width="1" 
+        filter="url(#glow)"/>
+  
+  <!-- Inner sparkle -->
+  <circle cx="20" cy="18" r="1.5" fill="#ffffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Small sparkles around -->
+  <circle cx="14" cy="12" r="0.8" fill="#ffffff" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="26" cy="10" r="0.6" fill="#ffffff" opacity="0.5">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="30" cy="20" r="0.7" fill="#ffffff" opacity="0.4">
+    <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

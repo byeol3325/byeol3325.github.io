@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { introduction, projects, papers, socialLinks, skills } from '@site/src/data/resume';
 import styles from './styles.module.css';
 
 function Resume() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = ['/img/moka.jpg', '/img/moon.jpg'];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(prev => (prev + 1) % images.length);
+    }, 1000); // 1초마다 변경
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className={styles.resumeContainer}>
       {/* Hero Section */}
@@ -38,7 +49,16 @@ function Resume() {
             </div>
           </div>
           <div className={styles.heroImage}>
-            <img src="/img/moka.jpg" alt="SungHo Moon" className={styles.profileImage} />
+            <div className={styles.imageContainer}>
+              {images.map((image, index) => (
+                <img 
+                  key={index}
+                  src={image} 
+                  alt="SungHo Moon" 
+                  className={`${styles.profileImage} ${index === currentImage ? styles.active : ''}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

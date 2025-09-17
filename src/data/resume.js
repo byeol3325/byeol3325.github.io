@@ -31,11 +31,11 @@ export const projects = [
     {
         title: 'ICCV 2025 Amazon Grocery Vision Challenge - 1st Place Winner',
         company: 'Amazon (ICCV 2025 Challenge)',
-        date: 'Aug 2024 - Sep 2024',
+        date: 'Aug 2025 - Sep 2025',
         goal: 'Develop a multi-modal AI model for Temporal Action Localization (TAL) and Spatio-Temporal Action Localization (STAL) in grocery shopping scenarios.',
         role: 'Lead Researcher (Solo) - Designed and implemented multi-modal fusion architecture combining video, audio, and contextual information for precise action detection and localization in retail environments.',
         achievement: 'Achieved 1st place in both TAL and STAL tracks within just 1 month of development. Successfully deployed multi-modal model achieving state-of-the-art performance on Amazon grocery dataset.',
-        blogUrl: 'https://grocery-vision.github.io/',
+        blogUrl: '/projects/iccv-2025-challenge',
     },
     {
         title: '3D Building Exterior Reconstruction',
@@ -44,7 +44,7 @@ export const projects = [
         goal: 'Develop a 3D reconstruction module using monocular images.',
         role: 'Lead Researcher (80% contribution) – Designed and implemented keypoint matching (SIFT/SURF), computed epipolar geometry, estimated camera relationships, and applied PnP & bundle adjustment (BA). Led the development of the full 3D reconstruction pipeline.',
         achievement: 'Successfully built a 3D reconstruction module that processes monocular images to generate 3D structures.',
-        blogUrl: 'https://byeol3325.github.io/projects/3d-reconstruction-deep-dive',
+        blogUrl: '/projects/3d-reconstruction',
     },
     {
         title: 'Robust Monocular Camera 3D Object Detection in Various Camera Environments',

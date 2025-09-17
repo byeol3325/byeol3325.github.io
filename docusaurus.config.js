@@ -65,8 +65,8 @@ const config = {
       navbar: {
         title: 'byeol3325',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'byeol3325 Star Logo',
+          src: 'img/star-logo.svg',
         },
         items: [
           {
