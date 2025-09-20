@@ -1,0 +1,369 @@
+/* Study Page Styles - Professional Academic Design */
+
+.studyContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 100%);
+  color: #e0e0e0;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.studyHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+}
+
+.studyTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.studyMeta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category {
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.date {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.studyContent {
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.introduction {
+  font-size: 1.1rem;
+  color: #d0d0d0;
+  background: rgba(100, 181, 246, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #64b5f6;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.sectionTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #64b5f6, #42a5f5);
+}
+
+.subsection {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(100, 181, 246, 0.3);
+}
+
+.subsectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #90caf9;
+  margin: 0 0 0.8rem 0;
+}
+
+.section p {
+  color: #d0d0d0;
+  margin-bottom: 1rem;
+}
+
+.section strong {
+  color: #90caf9;
+  font-weight: 600;
+}
+
+.list {
+  color: #d0d0d0;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.7;
+}
+
+.list li strong {
+  color: #90caf9;
+}
+
+.subList {
+  margin: 0.5rem 0 0 1rem;
+  padding-left: 1rem;
+}
+
+.subList li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.references {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.refButton {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(100, 181, 246, 0.1);
+  border: 1px solid #64b5f6;
+  border-radius: 20px;
+  color: #64b5f6;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.refButton:hover {
+  background: rgba(100, 181, 246, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+  text-decoration: none;
+  color: #90caf9;
+}
+
+.inlineLink {
+  color: #64b5f6;
+  text-decoration: none;
+  border-bottom: 1px dotted #64b5f6;
+  transition: all 0.3s ease;
+}
+
+.inlineLink:hover {
+  color: #90caf9;
+  border-bottom-color: #90caf9;
+  text-decoration: none;
+}
+
+/* Mathematical expressions and formulas */
+.mathSection {
+  background: rgba(100, 181, 246, 0.05);
+  border-left: 4px solid #64b5f6;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.mathList {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.mathList li {
+  margin-bottom: 0.3rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Application and technique grids */
+.applicationGrid,
+.techniqueGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.applicationCard,
+.techniqueCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.applicationCard:hover,
+.techniqueCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #64b5f6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(100, 181, 246, 0.15);
+}
+
+.applicationCard h4,
+.techniqueCard h4 {
+  color: #90caf9;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.applicationCard p,
+.techniqueCard p {
+  color: #d0d0d0;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Implementation considerations */
+.considerationList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.considerationItem {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #64b5f6;
+}
+
+.considerationItem h4 {
+  color: #90caf9;
+  margin: 0 0 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.considerationItem p {
+  color: #d0d0d0;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Conclusion section */
+.conclusion {
+  background: rgba(100, 181, 246, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+}
+
+.conclusion h3 {
+  color: #90caf9;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.conclusion p {
+  color: #d0d0d0;
+  margin: 0 0 1rem 0;
+  line-height: 1.7;
+}
+
+.conclusion p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code blocks and technical content */
+.section code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #ffcc80;
+}
+
+/* Mathematical expressions */
+.section sub {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .studyTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .subsectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .studyMeta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .references {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .refButton {
+    align-self: flex-start;
+  }
+
+  .applicationGrid,
+  .techniqueGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .considerationList {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mathSection {
+    padding: 1rem;
+  }
+
+  .conclusion {
+    padding: 1.5rem;
+  }
+}

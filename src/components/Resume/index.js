@@ -6,6 +6,19 @@ function Resume() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = ['/img/moon.jpg', '/img/moka.jpg'];
 
+  // Smooth scroll to section function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navHeight = 80; // Navigation bar height + some padding
+      const elementPosition = element.offsetTop - navHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage(prev => (prev + 1) % images.length);
@@ -22,6 +35,54 @@ function Resume() {
         <div className={styles.stars2}></div>
         <div className={styles.stars3}></div>
       </div>
+
+      {/* Navigation Bar */}
+      <nav className={styles.navigationBar}>
+        <div className={styles.navContainer}>
+          <button 
+            className={styles.navButton} 
+            onClick={() => scrollToSection('about')}
+            title="About me"
+          >
+            <span className={styles.navText}>About me</span>
+          </button>
+          <button 
+            className={styles.navButton} 
+            onClick={() => scrollToSection('news')}
+            title="News"
+          >
+            <span className={styles.navText}>News</span>
+          </button>
+          <button 
+            className={styles.navButton} 
+            onClick={() => scrollToSection('projects')}
+            title="Major Projects"
+          >
+            <span className={styles.navText}>Projects</span>
+          </button>
+          <button 
+            className={styles.navButton} 
+            onClick={() => scrollToSection('papers')}
+            title="Publications"
+          >
+            <span className={styles.navText}>Publications</span>
+          </button>
+          <button 
+            className={styles.navButton} 
+            onClick={() => scrollToSection('collaboration')}
+            title="Collaboration"
+          >
+            <span className={styles.navText}>Collaboration</span>
+          </button>
+          <a 
+            className={styles.navButton} 
+            href="/study"
+            title="Research"
+          >
+            <span className={styles.navText}>Research</span>
+          </a>
+        </div>
+      </nav>
 
       {/* Header Section */}
       <header className={styles.header}>
@@ -57,7 +118,7 @@ function Resume() {
       </header>
 
       {/* About Section */}
-      <section className={styles.about}>
+      <section id="about" className={styles.about}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>About</h2>
           <p className={styles.aboutText}>
@@ -69,7 +130,7 @@ function Resume() {
       </section>
 
       {/* News/Highlights Section */}
-      <section className={styles.news}>
+      <section id="news" className={styles.news}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>News</h2>
           <ul className={styles.newsList}>
@@ -84,7 +145,7 @@ function Resume() {
       {/* Selected Projects Section */}
       <section id="projects" className={styles.projects}>
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Selected Projects</h2>
+          <h2 className={styles.sectionTitle}>Major Projects</h2>
           <div className={styles.projectList}>
             {projects.slice(0, 5).map((project, index) => (
               <div key={index} className={styles.projectItem}>
@@ -211,7 +272,7 @@ function Resume() {
       </section>
 
       {/* Industry Collaboration */}
-      <section className={styles.collaboration}>
+      <section id="collaboration" className={styles.collaboration}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Industry Collaboration</h2>
           <div className={styles.companyGrid}>

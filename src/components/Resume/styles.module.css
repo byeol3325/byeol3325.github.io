@@ -3,9 +3,9 @@
 .resumeContainer {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 100%);
-  color: #e0e0e0;
-  padding-top: 2rem;
+  background: linear-gradient(135deg, #0c1220 0%, #1e2a4a 50%, #0f1419 100%);
+  color: #e8eaed;
+  padding-top: 4rem; /* Reduced to account for smaller nav */
   position: relative;
   overflow-x: hidden;
 }
@@ -83,11 +83,70 @@
   z-index: 1;
 }
 
+/* Navigation Bar */
+.navigationBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(12, 18, 32, 0.97);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(100, 181, 246, 0.2);
+  z-index: 1000;
+  padding: 0.6rem 0;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+.navContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(100, 181, 246, 0.4);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: #64b5f6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  min-width: 90px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover {
+  background: rgba(100, 181, 246, 0.15);
+  border-color: #90caf9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(100, 181, 246, 0.3);
+  color: #90caf9;
+}
+
+/* Icon styles removed - using text-only navigation */
+
+.navText {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
 /* Header Section */
 .header {
-  padding: 3rem 0 2rem;
+  padding: 2rem 0 1.5rem; /* Reduced padding */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduced margin */
   position: relative;
 }
 
@@ -193,16 +252,28 @@
 
 /* About Section */
 .about {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 1.2rem 0;
   color: #ffffff;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.sectionTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
 }
 
 .aboutText {
@@ -218,7 +289,7 @@
 
 /* News Section */
 .news {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .newsList {
@@ -241,7 +312,7 @@
 
 /* Publications Section */
 .publications {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .paperList {
@@ -333,7 +404,7 @@
 
 /* Projects Section */
 .projects {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .projectList {
@@ -434,7 +505,7 @@
 
 /* Industry Collaboration Section */
 .collaboration {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .companyGrid {
@@ -474,7 +545,7 @@
 
 /* Skills Section */
 .skills {
-  padding: 2rem 0;
+  padding: 1.5rem 0; /* Reduced padding */
 }
 
 .skillsContent {
@@ -513,6 +584,20 @@
 @media (max-width: 768px) {
   .container {
     padding: 0 15px;
+  }
+
+  .navContainer {
+    padding: 0 15px;
+    gap: 0.5rem;
+  }
+
+  .navButton {
+    min-width: 70px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navText {
+    font-size: 0.7rem;
   }
 
   .profileSection {

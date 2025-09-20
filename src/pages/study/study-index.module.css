@@ -1,0 +1,488 @@
+/* Study Index Page Styles - Professional Academic Design */
+
+.studyIndexContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c1220 0%, #1e2a4a 50%, #0f1419 100%);
+  color: #e8eaed;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Page Header */
+.pageHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+}
+
+.pageTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #64b5f6, #90caf9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pageDescription {
+  font-size: 1.2rem;
+  color: #d0d0d0;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+/* Search and Filter Section */
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(100, 181, 246, 0.2);
+}
+
+.searchContainer {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(100, 181, 246, 0.3);
+  border-radius: 25px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #64b5f6;
+  box-shadow: 0 0 20px rgba(100, 181, 246, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.searchInput::placeholder {
+  color: #b0b0b0;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #64b5f6;
+  pointer-events: none;
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filterLabel {
+  color: #d0d0d0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.categorySelect {
+  padding: 0.8rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(100, 181, 246, 0.3);
+  border-radius: 12px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.categorySelect:focus {
+  border-color: #64b5f6;
+  box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+}
+
+.categorySelect option {
+  background: #1a1f3a;
+  color: #e0e0e0;
+}
+
+/* Search Results */
+.searchResults {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(100, 181, 246, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid #64b5f6;
+}
+
+.resultsText {
+  color: #90caf9;
+  font-weight: 600;
+  margin: 0;
+}
+
+.clearButton {
+  background: rgba(100, 181, 246, 0.2);
+  border: 1px solid #64b5f6;
+  border-radius: 8px;
+  color: #64b5f6;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.clearButton:hover {
+  background: rgba(100, 181, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+/* No Results */
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.noResultsContent {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.noResultsIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.noResultsTitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.noResultsText {
+  color: #b0b0b0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Study Sections */
+.studySection {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(100, 181, 246, 0.2);
+}
+
+.sectionIcon {
+  font-size: 1.5rem;
+}
+
+/* Study Grid */
+.studyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Study Cards */
+.studyCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.studyCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.studyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(100, 181, 246, 0.2);
+  border-color: #64b5f6;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.studyCard:hover::before {
+  opacity: 1;
+}
+
+.studyCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.studyCategory {
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.studyDate {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.studyTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.studyDescription {
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.studyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.studyTag {
+  background: rgba(100, 181, 246, 0.1);
+  color: #64b5f6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(100, 181, 246, 0.3);
+}
+
+.studyFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.readMore {
+  color: #64b5f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.studyCard:hover .readMore {
+  color: #90caf9;
+}
+
+/* Coming Soon Cards */
+.comingSoon {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.comingSoon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(100, 181, 246, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comingSoon::before {
+  background: linear-gradient(90deg, #666, #888);
+}
+
+.comingSoon:hover::before {
+  opacity: 0.5;
+}
+
+.comingSoonText {
+  color: #888;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Statistics Section */
+.statsSection {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.statCard {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  border: 1px solid rgba(100, 181, 246, 0.1);
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #64b5f6;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #d0d0d0;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .pageTitle {
+    font-size: 2.2rem;
+  }
+
+  .pageDescription {
+    font-size: 1rem;
+  }
+
+  .studyGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .studyCard {
+    padding: 1.5rem;
+  }
+
+  .studyTitle {
+    font-size: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .studyCardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .searchSection {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .searchContainer {
+    max-width: 100%;
+  }
+
+  .searchInput {
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .searchIcon {
+    left: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .filterContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .categorySelect {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .searchResults {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .clearButton {
+    align-self: center;
+  }
+}
