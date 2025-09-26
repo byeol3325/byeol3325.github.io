@@ -5,7 +5,7 @@ import styles from './study.module.css';
 export default function BundleAdjustment() {
   return (
     <Layout
-      title="Bundle Adjustment in Computer Vision"
+      title="Bundle Adjustment in 3D Computer Vision"
       description="Comprehensive study on Bundle Adjustment optimization techniques in computer vision">
       <div className={styles.studyContainer}>
         <div className={styles.container}>
