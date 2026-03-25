@@ -1,16 +1,701 @@
-<!doctype html>
-<html lang="en" dir="ltr" class="plugin-pages plugin-id-default" data-has-hydrated="false">
+<!DOCTYPE html>
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.8.1">
-<title data-rh="true">CVA: Context-aware Video-text Alignment | byeol3325</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://byeol3325.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://byeol3325.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://byeol3325.github.io/projects/CVA/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="CVA: Context-aware Video-text Alignment | byeol3325"><meta data-rh="true" name="description" content="CVPR 2026 - Context-aware Video-text Alignment for Video Temporal Grounding"><meta data-rh="true" property="og:description" content="CVPR 2026 - Context-aware Video-text Alignment for Video Temporal Grounding"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://byeol3325.github.io/projects/CVA/"><link data-rh="true" rel="alternate" href="https://byeol3325.github.io/projects/CVA/" hreflang="en"><link data-rh="true" rel="alternate" href="https://byeol3325.github.io/projects/CVA/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.6663cde7.css">
-<script src="/assets/js/runtime~main.7c79592d.js" defer="defer"></script>
-<script src="/assets/js/main.eb031ad4.js" defer="defer"></script>
+  <meta charset="utf-8">
+  <meta name="description" content="CVA: Context-aware Video-text Alignment for Video Temporal Grounding. CVPR 2026.">
+  <meta name="keywords" content="CVA, Video Temporal Grounding, Moment Retrieval, Highlight Detection, CVPR 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CVA: Context-aware Video-text Alignment for Video Temporal Grounding</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="icon" href="/img/favicon.svg">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-venue {
+      color: #555;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .link-block a {
+      margin: 0 4px;
+    }
+
+    .interpolation-image {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    section.section {
+      padding: 2rem 1.5rem;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-table th {
+      background: #f5f5f5;
+      padding: 10px 12px;
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+      font-weight: 600;
+    }
+
+    .result-table th:first-child {
+      text-align: left;
+    }
+
+    .result-table td {
+      padding: 8px 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .result-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .result-table tr.ours {
+      background: #e8f4fd;
+      font-weight: 700;
+    }
+
+    .result-table tr.ours td {
+      color: #1a73e8;
+    }
+
+    .result-table tr.ours td:first-child {
+      color: #1a73e8;
+    }
+
+    .result-table .venue-tag {
+      color: #999;
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+
+    .result-table .underline {
+      text-decoration: underline;
+    }
+
+    .component-card {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #1a73e8;
+    }
+
+    .component-card h4 {
+      color: #1a73e8;
+      margin-bottom: 0.5rem;
+    }
+
+    .ablation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .ablation-card {
+      background: #f0f7ff;
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .ablation-card .metric {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a73e8;
+    }
+
+    .ablation-card .label-text {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    pre code {
+      font-size: 0.9rem;
+    }
+
+    .hero-body {
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    footer.footer {
+      padding: 2rem 1.5rem;
+    }
+  </style>
 </head>
-<body class="navigation-with-keyboard">
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
-<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
-</defs></svg>
-<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/star-logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/star-logo.svg" alt="byeol3325 Star Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/star-logo.svg" alt="byeol3325 Star Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">byeol3325</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/#projects">Projects</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/#papers">Papers</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/byeol3325/byeol3325.github.io" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="projectContainer_Xxzs"><div class="hero_6WHO"><div class="heroBackground_WTiT"></div><div class="container_ZhUz"><div class="badgeContainer_sX7z"><div class="badge_g5G7">CVPR 2026</div><div class="badgeSecondary_GMdd">Video Temporal Grounding</div></div><h1 class="title_wLSV">CVA: Context-aware Video-text Alignment for Video Temporal Grounding</h1><p class="subtitle_voQq">Sungho Moon*, Seunghun Lee*, Jiwan Seo, Sunghoon Im†</p><div class="meta_iFb_"><span class="company_CLg0">DGIST</span><span class="date_G_ZU">Sep 2025 - Dec 2025</span></div></div></div><div class="content_iBQN"><div class="container_ZhUz"><section class="section_kcLh"><h2>Project Overview</h2><p>We propose <strong>CVA (Context-aware Video-text Alignment)</strong>, a novel framework for Video Temporal Grounding that achieves temporally sensitive video-text alignment robust to irrelevant background context. Our approach is built on three key components that work synergistically to address the fundamental challenges in temporal grounding.</p></section><section class="section_kcLh"><h2>Key Components</h2><div class="techGrid_Ifpf"><div class="techCard_W4Xm"><h3>Query-aware Context Diversification (QCD)</h3><p>A data augmentation strategy that generates semantically safe and sufficiently informative synthetic training samples by selecting an intermediate similarity band, preventing both trivial negatives and false-negative contamination.</p></div><div class="techCard_W4Xm"><h3>Context-invariant Boundary Discrimination (CBD)</h3><p>A contrastive loss that explicitly targets start and end boundary clips, enhancing both cross-view consistency and discriminability against temporally adjacent and semantically hard negatives.</p></div><div class="techCard_W4Xm"><h3>Context-enhanced Transformer Encoder (CTE)</h3><p>A hierarchical encoder combining learnable queries and windowed self-attention to capture multi-scale temporal context, enhancing the model&#x27;s ability to encode both local and global temporal dependencies.</p></div></div></section><section class="section_kcLh"><h2>Key Achievements</h2><div class="achievementGrid_XQjR"><div class="achievementCard_S8fe"><div class="achievementIcon_aeLv">🏆</div><div class="achievementContent_L9HZ"><h3>State-of-the-Art on QVHighlights</h3><p>+4.95 R1@0.7 and +4.1 HD mAP over previous best methods</p></div></div><div class="achievementCard_S8fe"><div class="achievementIcon_aeLv">📊</div><div class="achievementContent_L9HZ"><h3>State-of-the-Art on TACoS</h3><p>41.07 mIoU, surpassing previous best by +1.76</p></div></div><div class="achievementCard_S8fe"><div class="achievementIcon_aeLv">🎯</div><div class="achievementContent_L9HZ"><h3>State-of-the-Art on Charades-STA</h3><p>62.61 R1@0.5 and 40.78 R1@0.7, outperforming prior works</p></div></div></div></section><section class="section_kcLh"><h2>Technologies Used</h2><div class="techGrid_Ifpf"><div class="techCard_W4Xm"><h3>Deep Learning</h3><p>PyTorch, Transformer, DETR-based Architecture</p></div><div class="techCard_W4Xm"><h3>Vision-Language</h3><p>CLIP, SlowFast, Multi-Modal Fusion</p></div><div class="techCard_W4Xm"><h3>Temporal Grounding</h3><p>Moment Retrieval, Highlight Detection</p></div><div class="techCard_W4Xm"><h3>Training</h3><p>AdamW, Cosine Annealing, Contrastive Learning</p></div></div></section><section class="section_kcLh"><h2>Resources</h2><div class="resources_U5un"><span class="resourceLinkDisabled_rsHs">📄 Paper (Coming Soon)</span><span class="resourceLinkDisabled_rsHs">💻 Code (Coming Soon)</span><a href="/" class="resourceLink_nbKO">← Back to Homepage</a></div></section></div></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://byeol3325.github.io/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <p class="publication-venue mb-2">CVPR 2026</p>
+            <h1 class="title is-2 publication-title">
+              CVA: Context-aware Video-text Alignment<br>for Video Temporal Grounding
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://byeol3325.github.io/">Sungho Moon</a>*,
+              </span>
+              <span class="author-block">
+                <a href="https://seung-hun-lee.github.io/">Seunghun Lee</a>*,
+              </span>
+              <span class="author-block">
+                <a href="https://seo-jiwan.github.io/">Jiwan Seo</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://sunghoonim.github.io">Sunghoon Im</a>&dagger;
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">DGIST</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="./CVA_for_arxiv.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.7;">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (Coming Soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.7;">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualization (Moved to Top) -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <img src="./images/negative_false.png" class="interpolation-image"
+            alt="Problem of previous context diversification: query-agnostic mixing introduces false negatives." />
+          <p class="figure-caption">
+            Qualitative visualization: Our method accurately localizes target moments by preventing false negatives, while baseline models struggle with semantic confusion caused by background context.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose <strong>Context-aware Video-text Alignment (CVA)</strong>, a novel framework to address
+              a significant challenge in video temporal grounding: achieving temporally sensitive video-text alignment
+              that remains robust to irrelevant background context.
+              Our framework is built on three key components.
+              First, we propose <strong>Query-aware Context Diversification (QCD)</strong>, a new data augmentation
+              strategy that ensures only semantically unrelated content is mixed in. It builds a video-text
+              similarity-based pool of replacement clips to simulate diverse contexts while preventing the
+              "false negative" caused by query-agnostic mixing.
+              Second, we introduce the <strong>Context-invariant Boundary Discrimination (CBD) loss</strong>,
+              a contrastive loss that enforces semantic consistency at challenging temporal boundaries, making
+              their representations robust to contextual shifts and hard negatives.
+              Third, we introduce the <strong>Context-enhanced Transformer Encoder (CTE)</strong>, a hierarchical
+              architecture that combines windowed self-attention and bidirectional cross-attention with learnable
+              queries to capture multi-scale temporal context.
+            </p>
+            <p>
+              Through the synergy of these data-centric and architectural enhancements, CVA achieves
+              state-of-the-art performance on major VTG benchmarks, including QVHighlights and Charades-STA.
+              Notably, our method achieves a significant improvement of approximately <strong>5 points in
+              Recall@1 (R1) scores</strong> over state-of-the-art methods, highlighting its effectiveness
+              in mitigating false negatives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivation -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Motivation</h2>
+          <div class="content has-text-justified">
+            <p>
+              The field of Video Temporal Grounding (VTG) aims to localize video segments that correspond to text queries.
+              Despite advances, models tend to learn <strong>spurious correlations</strong>, overly associating text queries
+              with static backgrounds rather than the target temporal dynamics.
+              Recent work introduced content mixing augmentation that replaces background clips with content from other videos.
+              However, this mixing remains <strong>query-agnostic</strong> &mdash; the replacement clips are sampled without
+              regard for their semantic relevance to the text query.
+              This can generate <em>false negatives</em> when semantically related clips are mistakenly treated as negative examples.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Method</h2>
+          <img src="./images/main.png" class="interpolation-image" alt="Overview of the CVA framework." />
+          <p class="figure-caption">
+            Overview of our CVA framework, which integrates Query-aware Context Diversification (QCD),
+            Context-enhanced Transformer Encoder (CTE), and Context-invariant Boundary Discrimination (CBD).
+          </p>
+        </div>
+      </div>
+
+      <div class="columns is-centered" style="margin-top: 2rem;">
+        <div class="column is-nine-tenths">
+
+          <div class="component-card">
+            <h4 class="title is-5">Query-aware Context Diversification (QCD)</h4>
+            <div class="content has-text-justified">
+              <p>
+                Given a video and its text query, QCD simulates diverse temporal contexts by replacing background
+                regions with clips from another video. Critically, we build a <strong>query-aware candidate pool</strong>
+                using pre-computed CLIP-based video-text similarity. Only clips whose similarity falls within
+                a valid range [&theta;<sub>min</sub>, &theta;<sub>max</sub>] are used for replacement &mdash;
+                excluding both too-similar clips (false negative risk) and too-different clips (trivial negatives).
+                We also preserve the immediate temporal context surrounding the ground-truth moment.
+              </p>
+            </div>
+            <div class="has-text-centered">
+              <img src="./images/qcd.png" class="interpolation-image" style="max-width: 90%;"
+                alt="Illustration of Query-aware Context Diversification." />
+              <p class="figure-caption">
+                Illustration of our Query-aware Context Diversification (QCD).
+              </p>
+            </div>
+          </div>
+
+          <div class="component-card">
+            <h4 class="title is-5">Context-enhanced Transformer Encoder (CTE)</h4>
+            <div class="content has-text-justified">
+              <p>
+                Most existing models perform immediate cross-attention between video and text without adequately
+                modeling the video's internal temporal context. CTE addresses this with a hierarchical encoder
+                consisting of N<sub>b</sub> stacked blocks, each containing:
+              </p>
+              <ul>
+                <li><strong>Windowed Self-Attention</strong>: Partitions video features into non-overlapping windows
+                  to capture local temporal patterns efficiently.</li>
+                <li><strong>Learnable Queries</strong>: A set of global queries refined via standard self-attention
+                  to represent abstract contextual information.</li>
+                <li><strong>Bidirectional Cross-Attention</strong>: Enables information exchange between local video
+                  contexts and global query representations.</li>
+              </ul>
+              <p>
+                After all blocks, hierarchical features are aggregated via a learnable weighted sum,
+                producing context-enhanced features F<sub>CTE</sub> that are then fed into the multimodal encoder
+                for cross-modal alignment with text queries.
+              </p>
+            </div>
+          </div>
+
+          <div class="component-card">
+            <h4 class="title is-5">Context-invariant Boundary Discrimination (CBD) Loss</h4>
+            <div class="content has-text-justified">
+              <p>
+                QCD generates augmented videos where temporal context is altered while the target moment's
+                semantics remain unchanged. CBD enforces this invariance by focusing on the <strong>temporal
+                boundaries</strong> &mdash; the regions most critical for precise localization.
+              </p>
+              <p>
+                For each boundary index, we construct:
+              </p>
+              <ul>
+                <li><strong>Anchors</strong>: Boundary features from the first augmented video.</li>
+                <li><strong>Positives</strong>: Corresponding boundary features from the second augmentation.</li>
+                <li><strong>Hard Negatives (dual sources)</strong>:
+                  (1) temporally adjacent background clips within margin N<sub>adj</sub>, and
+                  (2) the N<sub>hard</sub> most semantically confusable clips from the remaining background.
+                </li>
+              </ul>
+              <p>
+                The contrastive loss pulls anchor–positive pairs together while pushing anchors away from
+                hard negatives, guiding the model to learn highly discriminative, context-invariant boundary representations.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Performance</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-nine-tenths">
+
+          <!-- QVHighlights -->
+          <h4 class="title is-5">QVHighlights Test Split</h4>
+          <div class="content has-text-justified">
+            <p>
+              CVA outperforms all competing approaches, achieving substantial improvements across all metrics.
+              The improvements are most pronounced in Moment Retrieval recall, highlighting the effectiveness
+              of QCD in mitigating false negatives.
+            </p>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>R1@0.5</th>
+                  <th>R1@0.7</th>
+                  <th>mAP@0.5</th>
+                  <th>mAP@0.75</th>
+                  <th>mAP Avg.</th>
+                  <th>HD mAP</th>
+                  <th>HIT@1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Moment-DETR <span class="venue-tag">[NeurIPS'21]</span></td>
+                  <td>52.89</td><td>33.02</td><td>54.82</td><td>29.40</td><td>30.73</td><td>35.69</td><td>55.60</td>
+                </tr>
+                <tr>
+                  <td>UMT <span class="venue-tag">[CVPR'22]</span></td>
+                  <td>56.23</td><td>41.18</td><td>53.83</td><td>37.01</td><td>36.12</td><td>38.18</td><td>59.99</td>
+                </tr>
+                <tr>
+                  <td>QD-DETR <span class="venue-tag">[CVPR'23]</span></td>
+                  <td>62.40</td><td>44.98</td><td>62.52</td><td>39.88</td><td>39.86</td><td>38.94</td><td>62.40</td>
+                </tr>
+                <tr>
+                  <td>EaTR <span class="venue-tag">[ICCV'23]</span></td>
+                  <td>61.36</td><td>45.79</td><td>61.86</td><td>41.91</td><td>41.74</td><td>37.15</td><td>58.65</td>
+                </tr>
+                <tr>
+                  <td>CG-DETR <span class="venue-tag">[arXiv'23]</span></td>
+                  <td>65.43</td><td>48.38</td><td>64.51</td><td>42.77</td><td>42.86</td>
+                  <td class="underline">40.33</td><td><strong>66.21</strong></td>
+                </tr>
+                <tr>
+                  <td>BAM-DETR <span class="venue-tag">[ECCV'24]</span></td>
+                  <td>62.71</td><td>48.64</td><td>64.57</td><td>46.33</td><td>45.36</td><td>–</td><td>–</td>
+                </tr>
+                <tr>
+                  <td>UVCOM <span class="venue-tag">[CVPR'24]</span></td>
+                  <td>63.55</td><td>47.47</td><td>63.37</td><td>42.67</td><td>43.18</td><td>39.74</td><td>64.20</td>
+                </tr>
+                <tr>
+                  <td>TR-DETR <span class="venue-tag">[AAAI'24]</span></td>
+                  <td>64.66</td><td>48.96</td><td>63.98</td><td>43.73</td><td>42.62</td><td>39.91</td><td>63.42</td>
+                </tr>
+                <tr>
+                  <td>CDTR <span class="venue-tag">[AAAI'25]</span></td>
+                  <td class="underline">65.79</td><td>49.60</td>
+                  <td class="underline">66.44</td><td>45.96</td><td>44.37</td><td>–</td><td>–</td>
+                </tr>
+                <tr>
+                  <td>TD-DETR <span class="venue-tag">[ICCV'25]</span></td>
+                  <td>64.53</td><td class="underline">50.37</td>
+                  <td>66.21</td><td class="underline">47.32</td><td class="underline">46.69</td><td>–</td><td>–</td>
+                </tr>
+                <tr class="ours">
+                  <td>CVA (Ours)</td>
+                  <td><strong>70.05</strong></td><td><strong>55.32</strong></td>
+                  <td><strong>69.49</strong></td><td><strong>48.45</strong></td><td><strong>47.49</strong></td>
+                  <td><strong>44.43</strong></td><td class="underline">66.01</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Charades-STA -->
+          <h4 class="title is-5" style="margin-top: 2rem;">Charades-STA</h4>
+          <div class="content has-text-justified">
+            <p>
+              CVA achieves the new state-of-the-art across all metrics, outperforming BAM-DETR by
+              <strong>+2.66</strong> on R1@0.5 and <strong>+1.40</strong> on R1@0.7.
+            </p>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>R1@0.3</th>
+                  <th>R1@0.5</th>
+                  <th>R1@0.7</th>
+                  <th>mIoU</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>M-DETR <span class="venue-tag">[NeurIPS'21]</span></td>
+                  <td>65.83</td><td>52.07</td><td>30.59</td><td>45.54</td>
+                </tr>
+                <tr>
+                  <td>UniVTG <span class="venue-tag">[ICCV'23]</span></td>
+                  <td>70.81</td><td>58.01</td><td>35.65</td><td>50.10</td>
+                </tr>
+                <tr>
+                  <td>UVCOM <span class="venue-tag">[CVPR'24]</span></td>
+                  <td>–</td><td>59.25</td><td>36.64</td><td>–</td>
+                </tr>
+                <tr>
+                  <td>BAM-DETR <span class="venue-tag">[ECCV'24]</span></td>
+                  <td>72.93</td><td>59.95</td><td>39.38</td><td>52.33</td>
+                </tr>
+                <tr>
+                  <td>CDTR <span class="venue-tag">[AAAI'25]</span></td>
+                  <td>71.16</td><td>60.39</td><td>37.24</td><td>50.65</td>
+                </tr>
+                <tr class="ours">
+                  <td>CVA (Ours)</td>
+                  <td><strong>74.19</strong></td><td><strong>62.61</strong></td>
+                  <td><strong>40.78</strong></td><td><strong>53.35</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- TACoS -->
+          <h4 class="title is-5" style="margin-top: 2rem;">TACoS</h4>
+          <div class="content has-text-justified">
+            <p>
+              Our method consistently outperforms previous approaches on TACoS, achieving a mIoU of
+              <strong>41.07</strong> (+1.76 over BAM-DETR).
+            </p>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>R1@0.3</th>
+                  <th>R1@0.5</th>
+                  <th>R1@0.7</th>
+                  <th>mIoU</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>UniVTG <span class="venue-tag">[ICCV'23]</span></td>
+                  <td>51.44</td><td>34.97</td><td>17.35</td><td>33.60</td>
+                </tr>
+                <tr>
+                  <td>UVCOM <span class="venue-tag">[CVPR'24]</span></td>
+                  <td>–</td><td>36.39</td><td>23.32</td><td>–</td>
+                </tr>
+                <tr>
+                  <td>CDTR <span class="venue-tag">[AAAI'25]</span></td>
+                  <td>53.41</td><td>40.26</td><td>23.43</td><td>37.28</td>
+                </tr>
+                <tr>
+                  <td>BAM-DETR <span class="venue-tag">[ECCV'24]</span></td>
+                  <td>56.69</td><td>41.45</td><td>26.77</td><td>39.31</td>
+                </tr>
+                <tr class="ours">
+                  <td>CVA (Ours)</td>
+                  <td><strong>58.80</strong></td><td><strong>43.21</strong></td>
+                  <td><strong>27.73</strong></td><td><strong>41.07</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablation / Analysis -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Analysis</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-nine-tenths">
+          <div class="content has-text-justified">
+            <p>
+              We conduct ablation studies on the QVHighlights validation split to validate the contribution
+              of each component. All three components are complementary, and their combination yields the best performance.
+            </p>
+          </div>
+
+          <div class="ablation-grid">
+            <div class="ablation-card">
+              <div class="metric">+5.21</div>
+              <div class="label-text"><strong>QCD</strong><br>R1@0.7 gain<br>(+ 3.92 HD mAP)</div>
+            </div>
+            <div class="ablation-card">
+              <div class="metric">+0.65</div>
+              <div class="label-text"><strong>CTE</strong><br>R1@0.7 gain<br>(on QCD baseline)</div>
+            </div>
+            <div class="ablation-card">
+              <div class="metric">+2.86</div>
+              <div class="label-text"><strong>CBD</strong><br>R1@0.7 gain<br>(with hard negatives)</div>
+            </div>
+            <div class="ablation-card">
+              <div class="metric">54.84</div>
+              <div class="label-text"><strong>Full Model</strong><br>R1@0.7 (val)<br>CTE + QCD + CBD</div>
+            </div>
+          </div>
+
+          <div class="content has-text-justified" style="margin-top: 1.5rem;">
+            <p>
+              <strong>QCD vs. Query-agnostic Mixing:</strong> Query-agnostic mixing yields only marginal improvements,
+              while QCD provides substantially larger gains (+5.21 R1@0.7 and +3.92 HD mAP), confirming that conditioning
+              augmentation on the query is crucial for preventing false-negative contamination.
+            </p>
+            <p>
+              <strong>CBD Negative Sampling:</strong> Using only temporally adjacent negatives provides improvement,
+              but the most significant gain comes from introducing semantically hard negatives. The final configuration
+              (N<sub>adj</sub>=2, N<sub>hard</sub>=5) achieves the best overall performance including the highest HD mAP (43.47).
+            </p>
+            <p>
+              <strong>CTE Architecture:</strong> Learnable queries (+1.22 R1@0.5, +0.51 mAP@0.5) and windowed self-attention
+              are complementary. Combining both mechanisms achieves the best overall balance (+2.30 R1@0.5, +1.89 mAP@0.5),
+              demonstrating they jointly enhance temporal context encoding.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{moon2026cva,
+  title={CVA: Context-aware Video-text Alignment for Video Temporal Grounding},
+  author={Moon, Sungho and Lee, Seunghun and Seo, Jiwan and Im, Sunghoon},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered" style="font-size: 0.9rem;">
+            <p>
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+                Attribution-ShareAlike 4.0 International License</a>.
+              Template based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>
