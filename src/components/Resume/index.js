@@ -187,7 +187,7 @@ function Resume() {
           <p className={styles.aboutText}>
             I am an AI Research Engineer specializing in <strong>Multi-Modal AI</strong>, <strong>Vision-Language Models (VLM)</strong>, and <strong>3D Computer Vision</strong>.
             Currently pursuing my Ph.D. at DGIST, I focus on developing robust AI systems that bridge the gap between complex visual and textual data. 
-            With extensive R&D experience collaborating with domestic and international industry leaders like <strong>Hyundai Motor Company, Honda, Elith, and ETRI</strong>, I am passionate about advancing state-of-the-art AI technologies for real-world applications.
+            With extensive R&D experience collaborating with domestic and international industry leaders like <strong>Hyundai Motor Company, Honda, Elith, and ETRI</strong>, I am always open to new opportunities. I welcome industry collaborations, research discussions, and job offers. Please feel free to contact me anytime!
           </p>
         </div>
       </section>

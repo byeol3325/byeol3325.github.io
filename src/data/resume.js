@@ -24,7 +24,7 @@ export const introduction = {
       { name: 'HD Korea shipbuilding & Offshore Engineering', logo: 'img/hd_shipping.png', url: 'https://www.hdksoe.co.kr/' },
       { name: 'Huvitz logo', logo: 'img/huvitz.png', url: 'https://www.huvitz.com/' },
       { name: 'Honda', logo: 'img/honda.png', url: 'https://global.honda/' },
-      { name: 'Elith', logo: 'img/elith.png', url: 'https://elith.co.jp/' },
+      { name: 'Elith', logo: 'img/elith.png', url: 'https://www.elith.ai/' },
     ],
   },
 };
