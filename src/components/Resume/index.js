@@ -2,9 +2,64 @@ import React, { useState, useEffect } from 'react';
 import { introduction, projects, papers, socialLinks } from '@site/src/data/resume';
 import styles from './styles.module.css';
 
+const Particles = ({ x, y, onComplete }) => {
+  const [particles] = useState(() => {
+    return Array.from({ length: 15 }).map(() => ({
+      id: Math.random().toString(36).substr(2, 9),
+      x: (Math.random() - 0.5) * 100, // Random X spread
+      y: (Math.random() - 0.5) * 100, // Random Y spread
+      scale: Math.random() * 0.5 + 0.5,
+      rotation: Math.random() * 360,
+    }));
+  });
+
+  // Remove the particle container after animation completes
+  React.useEffect(() => {
+    const timer = setTimeout(onComplete, 1000); // 1s animation
+    return () => clearTimeout(timer);
+  }, [onComplete]);
+
+  return (
+    <div 
+      className={styles.particlesContainer} 
+      style={{ left: x, top: y }}
+    >
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className={styles.particle}
+          style={{
+            '--tx': `${p.x}px`,
+            '--ty': `${p.y}px`,
+            '--s': p.scale,
+            '--r': `${p.rotation}deg`,
+          }}
+        >
+          <img src="/img/star-logo.svg" alt="star dust" />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 function Resume() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = ['/img/moon.jpg', '/img/moka.jpg'];
+  const [particleEffects, setParticleEffects] = useState([]);
+  const [activeSection, setActiveSection] = React.useState('about');
+
+  const handleStarClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    
+    const id = Date.now();
+    setParticleEffects(prev => [...prev, { id, x, y }]);
+  };
+
+  const removeParticleEffect = (id) => {
+    setParticleEffects(prev => prev.filter(effect => effect.id !== id));
+  };
 
   // Smooth scroll to section function
   const scrollToSection = (sectionId) => {
@@ -87,9 +142,17 @@ function Resume() {
       {/* Header Section */}
       <header className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.starLogo}>
+          <div className={styles.starLogo} onClick={handleStarClick}>
             <img src="/img/star-logo.svg" alt="Star Logo" />
           </div>
+          {particleEffects.map(effect => (
+            <Particles 
+              key={effect.id} 
+              x={effect.x} 
+              y={effect.y} 
+              onComplete={() => removeParticleEffect(effect.id)} 
+            />
+          ))}
           <div className={styles.profileSection}>
             <div className={styles.profilePhotoContainer}>
               {images.map((image, index) => (
@@ -104,7 +167,7 @@ function Resume() {
             <div className={styles.profileInfo}>
               <h1 className={styles.name}>SungHo Moon</h1>
               <p className={styles.title}>now Ph.D. Candidate at DGIST</p>
-              <p className={styles.research}>Computer Vision & AI Research Engineer</p>
+              <p className={styles.research}>AI Research Engineer</p>
               <div className={styles.contact}>
                 <a href="mailto:byul3325@gmail.com">byul3325@gmail.com</a>
                 <span className={styles.separator}>•</span>
@@ -122,9 +185,9 @@ function Resume() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>About</h2>
           <p className={styles.aboutText}>
-            I am a Computer Vision researcher specializing in <strong>3D Reconstruction</strong>, <strong>Multi-Modal AI</strong>, and <strong>Object Detection</strong>.
-            Currently pursuing my Ph.D. at DGIST, I have extensive experience collaborating with industry leaders including <strong>Hyundai Motor Company,
-            ETRI, and the Ministry of National Defense and etc.</strong> My research focuses on developing robust AI systems and advancing practical AI technologies that can be directly applied to real-world challenges.
+            I am an AI Research Engineer specializing in <strong>Multi-Modal AI</strong>, <strong>Vision-Language Models (VLM)</strong>, and <strong>3D Computer Vision</strong>.
+            Currently pursuing my Ph.D. at DGIST, I focus on developing robust AI systems that bridge the gap between complex visual and textual data. 
+            With extensive R&D experience collaborating with domestic and international industry leaders like <strong>Hyundai Motor Company, Honda, Elith, and ETRI</strong>, I am passionate about advancing state-of-the-art AI technologies for real-world applications.
           </p>
         </div>
       </section>
@@ -134,10 +197,11 @@ function Resume() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>News</h2>
           <ul className={styles.newsList}>
-            <li><strong>Sep 2025:</strong> 🏆 Won 1st Place in ICCV 2025 Amazon Grocery Vision Challenge (TAL & STAL tracks)</li>
-            <li><strong>Jul 2025:</strong> ✅ Completed projects with Huvitz on real-time 3D reconstruction</li>
-            <li><strong>Dec 2024:</strong> 💊 Completed projects with ETRI on pill detection and recognition</li>
-            <li><strong>Nov 2024:</strong> 📷 Completed projects with HD Korea Shipbuilding & Offshore Engineering on camera calibration</li>
+            <li><strong>Mar 2026:</strong> <strong>Paper accepted</strong> at <strong>CVPR 2026</strong>: "CVA: Context-aware Video-text Alignment for Video Temporal Grounding"</li>
+            <li><strong>Sep 2025:</strong> <strong>Won 1st Place</strong> in <strong>ICCV 2025</strong> Amazon Grocery Vision Challenge (TAL & STAL tracks)</li>
+            <li><strong>Jul 2025:</strong> <strong>Completed projects</strong> with <strong>Huvitz</strong> on real-time 3D reconstruction using LCD, PGO</li>
+            <li><strong>Dec 2024:</strong> <strong>Completed projects</strong> with <strong>ETRI</strong> on pill detection and recognition</li>
+            <li><strong>Nov 2024:</strong> <strong>Completed projects</strong> with <strong>HD Korea Shipbuilding & Offshore Engineering</strong> on camera calibration</li>
           </ul>
         </div>
       </section>
@@ -166,18 +230,27 @@ function Resume() {
                       [Details]
                     </a>
                   ) : (
-                    <a href="/projects/coming-soon" className={styles.linkButton}>
-                      [Coming Soon]
-                    </a>
+                    <span className={styles.confidentialButton}>[Details: Confidential]</span>
                   )}
-                  {project.paper && (
-                    <a href={project.paper} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
-                      [Paper]
-                    </a>
-                  )}
-                  {project.code && (
-                    <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                  {project.code === 'coming soon' ? (
+                    <span className={styles.confidentialButton}>[Code: Coming Soon]</span>
+                  ) : project.code ? (
+                    <a href={project.code} className={styles.linkButton}>
                       [Code]
+                    </a>
+                  ) : (
+                    <span className={styles.confidentialButton}>
+                      [Code: Confidential]
+                    </span>
+                  )}
+                  {project.reference_video && (
+                    <a href={project.reference_video} className={styles.linkButton} target="_blank" rel="noopener noreferrer">
+                      [Reference Video]
+                    </a>
+                  )}
+                  {project.reference_site && (
+                    <a href={project.reference_site} className={styles.linkButton} target="_blank" rel="noopener noreferrer">
+                      [Reference Site]
                     </a>
                   )}
                 </div>
@@ -207,18 +280,27 @@ function Resume() {
                           [Details]
                         </a>
                       ) : (
-                        <a href="/projects/coming-soon" className={styles.linkButton}>
-                          [Coming Soon]
-                        </a>
+                        <span className={styles.confidentialButton}>[Details: Confidential]</span>
                       )}
-                      {project.paper && (
-                        <a href={project.paper} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
-                          [Paper]
-                        </a>
-                      )}
-                      {project.code && (
-                        <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
+                      {project.code === 'coming soon' ? (
+                        <span className={styles.confidentialButton}>[Code: Coming Soon]</span>
+                      ) : project.code ? (
+                        <a href={project.code} className={styles.linkButton}>
                           [Code]
+                        </a>
+                      ) : (
+                        <span className={styles.confidentialButton}>
+                          [Code: Confidential]
+                        </span>
+                      )}
+                      {project.reference_video && (
+                        <a href={project.reference_video} className={styles.linkButton} target="_blank" rel="noopener noreferrer">
+                          [Reference Video]
+                        </a>
+                      )}
+                      {project.reference_site && (
+                        <a href={project.reference_site} className={styles.linkButton} target="_blank" rel="noopener noreferrer">
+                          [Reference Site]
                         </a>
                       )}
                     </div>
@@ -240,7 +322,7 @@ function Resume() {
                 <div className={styles.paperContent}>
                   <h3 className={styles.paperTitle}>{paper.title}</h3>
                   <p className={styles.paperAuthors}>{paper.authors}</p>
-                  <p className={styles.paperVenue}>{paper.journal}, {paper.date}</p>
+                  <p className={styles.paperVenue}>{paper.journal}</p>
                   {paper.description && (
                     <p className={styles.paperDescription}>{paper.description}</p>
                   )}
@@ -254,13 +336,17 @@ function Resume() {
                         [Coming Soon]
                       </a>
                     )}
-                    {paper.github && paper.github !== 'confidential' ? (
+                    {paper.github && paper.github !== 'confidential' && paper.github !== 'coming soon' ? (
                       <a href={paper.github} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>
                         [GitHub]
                       </a>
                     ) : paper.github === 'confidential' ? (
                       <span className={styles.confidentialButton}>
                         [GitHub: Confidential]
+                      </span>
+                    ) : paper.github === 'coming soon' ? (
+                      <span className={styles.confidentialButton}>
+                        [GitHub: Coming Soon]
                       </span>
                     ) : null}
                   </div>
@@ -276,9 +362,9 @@ function Resume() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Industry Collaboration</h2>
           <div className={styles.companyGrid}>
-            {introduction.collaboration.companies.slice(0, 6).map((company, index) => (
+            {introduction.collaboration.companies.map((company, index) => (
               <a href={company.url} key={index} target="_blank" rel="noopener noreferrer" className={styles.companyLogo} title={company.name}>
-                <img src={`/${company.logo}`} alt={company.name} />
+                <img src={company.logo} alt={`${company.name} logo`} />
               </a>
             ))}
           </div>
@@ -288,8 +374,11 @@ function Resume() {
       {/* Skills Section */}
       <section className={styles.skills}>
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Technical Skills</h2>
+          <h2 className={styles.sectionTitle}>Skills</h2>
           <div className={styles.skillsContent}>
+            <div className={styles.skillGroup}>
+              <strong>AI & Computer Vision:</strong> Multi-Modal AI, Vision-Language Models (VLM), 3D Computer Vision, Temporal Action Localization, Pose Graph Optimization
+            </div>
             <div className={styles.skillGroup}>
               <strong>Languages:</strong> Python, C++, C, MATLAB
             </div>
@@ -309,7 +398,7 @@ function Resume() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.container}>
-          <p>© 2025 SungHo Moon. All rights reserved.</p>
+          <p>© 2026 SungHo Moon. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <Layout
       title={`byeol3325 - SungHo Moon`}
-      description="SungHo Moon's Portfolio - Computer Vision & AI Research Engineer">
+      description="SungHo Moon's Portfolio - AI Research Engineer">
       <main>
         <Resume />
       </main>

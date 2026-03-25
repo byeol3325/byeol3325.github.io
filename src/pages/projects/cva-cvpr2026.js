@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 
-export default function Iccv2025Challenge() {
+export default function CvaCvpr2026() {
   useEffect(() => {
-    window.location.replace('/projects/ICCV2025/');
+    window.location.replace('/projects/CVA/');
   }, []);
 
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
-      <p>Redirecting to <a href="/projects/ICCV2025/">ICCV 2025 Challenge Project Page</a>...</p>
+      <p>Redirecting to <a href="/projects/CVA/">CVA Project Page</a>...</p>
     </div>
   );
 }

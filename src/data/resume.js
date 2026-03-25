@@ -3,7 +3,7 @@
 
 export const introduction = {
   title: 'SungHo Moon',
-  subtitle: 'A passionate Computer Vision(2D/3D) Engineer in Korea.',
+  subtitle: 'A passionate AI Research Engineer in Korea.',
   description: [
     'I plan to continue uploading the projects I have done in the future.',
     'I’m currently learning **multi-modal, multi-camera, lidar.**',
@@ -23,27 +23,42 @@ export const introduction = {
       { name: 'U.S Department of Defense logo', logo: 'img/us_dod.png', url: 'https://www.defense.gov/' },
       { name: 'HD Korea shipbuilding & Offshore Engineering', logo: 'img/hd_shipping.png', url: 'https://www.hdksoe.co.kr/' },
       { name: 'Huvitz logo', logo: 'img/huvitz.png', url: 'https://www.huvitz.com/' },
+      { name: 'Honda', logo: 'img/honda.png', url: 'https://global.honda/' },
+      { name: 'Elith', logo: 'img/elith.png', url: 'https://elith.co.jp/' },
     ],
   },
 };
 
 export const projects = [
     {
-        title: 'ICCV 2025 Amazon Grocery Vision Challenge - 1st Place Winner',
-        company: 'Amazon (ICCV 2025 Challenge)',
-        date: 'Jul 2025 - Aug 2025',
+        title: 'CVA: Context-aware Video-text Alignment for Video Temporal Grounding',
+        company: 'DGIST (CVPR 2026)',
+        date: 'Sep 2025 - Dec 2025',
+        goal: 'Proposed a novel framework for Video Temporal Grounding that achieves temporally sensitive video-text alignment robust to irrelevant background context, built on three key components: QCD, CBD loss, and CTE.',
+        role: 'Co-first Author (50% contribution) - Developed the overall CVA framework and implemented the core methodology (QCD, CBD, CTE). Conducted extensive experiments and ablation studies.',
+        achievement: 'Achieved State-of-the-Art performance on three major benchmarks: QVHighlights, Charades-STA, and TACoS. Paper accepted to CVPR 2026.',
+        blogUrl: '/projects/CVA/',
+        code: 'coming soon',
+    },
+    {
+        title: 'Amazon Grocery Vision Challenge (ICCV 2025)',
+        company: 'Amazon & DGIST',
+        date: 'Aug 2025 - Sep 2025',
         goal: 'Develop a multi-modal AI model for Temporal Action Localization (TAL) and Spatio-Temporal Action Localization (STAL) in grocery shopping scenarios.',
         role: 'Lead Researcher (Solo) - Designed and implemented multi-modal fusion architecture combining video, audio, and contextual information for precise action detection and localization in retail environments.',
         achievement: 'Achieved 1st place in both TAL and STAL tracks within just 1 month of development. Successfully deployed multi-modal model achieving state-of-the-art performance on Amazon grocery dataset.',
-        blogUrl: '/projects/iccv-2025-challenge',
+        blogUrl: '/projects/ICCV2025/',
+        code: 'coming soon',
+        reference_site: 'https://grocery-vision.github.io/',
     },
     {
         title: 'Real time 3D Reconstruction using Dental Scanner',
         company: 'Huvitz',
         date: 'Jun 2024 - Jul 2025',
-        goal: 'Develop a real-time 3D reconstruction system using scanner.',
-        role: 'Core Developer (70% contribution) - New 3D reconstruction module development using LCD & PGO.',
+        goal: 'Develop a real-time 3D reconstruction system utilizing Iterative Closest Point (ICP), Loop Closure Detection (LCD), and Pose Graph Optimization (PGO) for robust and accurate mapping.',
+        role: 'Core Developer (70% contribution) - Engineered the core 3D reconstruction pipeline, integrating LCD and PGO to minimize drift and ensure global consistency in real-time.',
         achievement: 'Improved speed by up to 80% compared to the existing algorithm without performance degradation.',
+        reference_video: 'https://www.youtube.com/watch?v=AZyvwwwwhSI',
         blogUrl: null,
     },
     {
@@ -123,10 +138,17 @@ export const projects = [
 // You can add your paper data here.
 export const papers = [
     {
+        title: 'CVA: Context-aware Video-text Alignment for Video Temporal Grounding',
+        authors: 'Sungho Moon*, Seunghun Lee*, Jiwan Seo, Sunghoon Im†',
+        journal: 'CVPR 2026',
+        description: 'Proposed a context-aware framework for video temporal grounding with Query-aware Context Diversification, Context-invariant Boundary Discrimination loss, and Context-enhanced Transformer Encoder. Achieved SOTA on QVHighlights, Charades-STA, and TACoS.',
+        url: '#',
+        github: 'coming soon',
+    },
+    {
         title: 'Rotation Matters: Generalized Monocular 3D Object Detection for Various Camera Systems',
         authors: 'SungHo Moon, JinWoo Bae, SungHoon Im',
         journal: 'CVPR Workshop 2023',
-        date: 'June 2023',
         description: 'Proposed a generalized approach for monocular 3D object detection that addresses performance degradation caused by varying camera orientations and systems.',
         url: 'https://arxiv.org/abs/2310.05366',
         github: 'confidential',
@@ -135,7 +157,6 @@ export const papers = [
         title: 'Deep Digging into the Generalization of Self-Supervised Monocular Depth Estimation',
         authors: 'Jinwoo Bae, Sungho Moon, Sunghoon Im',
         journal: 'AAAI 2023',
-        date: 'May 2022',
         description: 'Investigated the generalization capabilities of self-supervised monocular depth estimation methods across different domains and datasets.',
         url: 'https://arxiv.org/pdf/2205.11083',
         github: 'https://github.com/sjg02122/MonoFormer',

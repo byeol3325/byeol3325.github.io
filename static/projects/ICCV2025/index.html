@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ICCV 2025 Amazon Grocery Vision Challenge - 1st Place Winner">
+  <meta name="keywords" content="ICCV 2025, Grocery Vision Challenge, Temporal Action Localization, Spatio-Temporal Action Localization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICCV 2025 Amazon Grocery Vision Challenge - 1st Place Winner</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="/img/favicon.svg">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-venue {
+      color: #555;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .link-block a {
+      margin: 0 4px;
+    }
+
+    section.section {
+      padding: 2rem 1.5rem;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .component-card {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #1a73e8;
+    }
+
+    .component-card h4 {
+      color: #1a73e8;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-body {
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    footer.footer {
+      padding: 2rem 1.5rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .video-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .video-header {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .video-header h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .video-header p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .video-container {
+      width: 100%;
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+    }
+    
+    .ablation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .ablation-card {
+      background: #f0f7ff;
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .ablation-card .metric {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a73e8;
+    }
+
+    .ablation-card .label-text {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://byeol3325.github.io/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <p class="publication-venue mb-2">ICCV 2025</p>
+            <h1 class="title is-2 publication-title">
+              Amazon Grocery Vision Challenge<br>1st Place Winner
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://byeol3325.github.io/">Sungho Moon</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">DGIST</span>
+            </div>
+
+            <div class="column has-text-centered" style="margin-top: 1rem;">
+              <div class="ablation-grid" style="display: flex; justify-content: center; max-width: 600px; margin: 0 auto;">
+                <div class="ablation-card" style="flex: 1;">
+                  <div class="metric">🥇 1st Place</div>
+                  <div class="label-text">STAL Track</div>
+                </div>
+                <div class="ablation-card" style="flex: 1;">
+                  <div class="metric">🥈 2nd Place</div>
+                  <div class="label-text">TAL Track</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://grocery-vision.github.io/" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-globe"></i>
+                    </span>
+                    <span>Challenge Website</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Technical Paper (Coming Soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract / Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Project Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our award-winning solution for the ICCV 2025 Grocery Vision Challenge represents a breakthrough 
+              in understanding complex human behaviors in retail environments. We developed a sophisticated 
+              multi-modal fusion architecture that integrates cutting-edge deep learning techniques to achieve 
+              unprecedented accuracy in detecting and classifying three critical consumer behaviors: 
+              <strong> Take</strong>, <strong>Return</strong>, and <strong>Rummage</strong> actions.
+            </p>
+            <p>
+              The solution combines Temporal Action Localization (TAL) and Spatio-Temporal Action Localization (STAL) 
+              approaches, leveraging the OpenTAD framework with AdaTAD and CausalTAD models, alongside GLEE object detection 
+              and SAM2 segmentation for comprehensive scene understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Architecture -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Technical Architecture</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered" style="margin-top: 1rem;">
+        <div class="column is-nine-tenths">
+
+          <div class="component-card">
+            <h4 class="title is-5">🕐 Temporal Action Localization (TAL)</h4>
+            <div class="content has-text-justified">
+              <ul>
+                <li><strong>AdaTAD</strong>: Adaptive temporal action detection for precise boundary localization</li>
+                <li><strong>CausalTAD</strong>: Causal temporal modeling for robust action classification</li>
+                <li><strong>Ensemble Strategy</strong>: Multiple model configurations for enhanced performance</li>
+                <li><strong>OpenTAD Framework</strong>: State-of-the-art temporal action detection pipeline</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="component-card">
+            <h4 class="title is-5">📍 Spatio-Temporal Action Localization (STAL)</h4>
+            <div class="content has-text-justified">
+              <ul>
+                <li><strong>GLEE</strong>: Advanced object detection for precise localization</li>
+                <li><strong>SAM2</strong>: Segment Anything Model 2 for fine-grained segmentation</li>
+                <li><strong>Temporal Tracking</strong>: Robust object tracking across video sequences</li>
+                <li><strong>Spatio-Temporal Tubelets</strong>: Rich 4D object representations</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="component-card">
+            <h4 class="title is-5">⚡ Fusion & Refinement Engine</h4>
+            <div class="content has-text-justified">
+              <ul>
+                <li><strong>Temporal Intersection</strong>: Calculate overlap between TAL segments and STAL tubelets</li>
+                <li><strong>Confidence Refinement</strong>: Multi-modal agreement-based score adjustment</li>
+                <li><strong>Action-Object Association</strong>: Link actions to specific objects in scenes</li>
+                <li><strong>Boundary Optimization</strong>: Refine temporal boundaries using spatial information</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Videos -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <h2 class="title is-3">Demo Videos & Visualizations</h2>
+          <div class="content has-text-justified">
+            <p>
+              Explore our winning solution in action through these comprehensive visualizations showcasing 
+              the precision of our temporal and spatio-temporal action localization pipeline.
+            </p>
+          </div>
+          
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="video-header">
+                <h3>Take Action Detection</h3>
+                <p>Demonstration of precise temporal and spatial localization of "take" actions</p>
+              </div>
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="/video/video_00004_github_visualization.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            
+            <div class="video-card">
+              <div class="video-header">
+                <h3>Return Action Analysis</h3>
+                <p>Advanced detection and tracking of "return" behaviors</p>
+              </div>
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="/video/video_00013_github_visualization.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-header">
+                <h3>Rummage Behavior Recognition</h3>
+                <p>Complex behavior analysis for "rummage" actions</p>
+              </div>
+              <div class="video-container">
+                <video controls preload="metadata">
+                  <source src="/video/video_00075_github_visualization.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered" style="font-size: 0.9rem;">
+            <p>
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+                Attribution-ShareAlike 4.0 International License</a>.
+              Template based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
