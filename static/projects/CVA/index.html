@@ -219,7 +219,7 @@
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./CVA_for_arxiv.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -227,15 +227,15 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.7;">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
-                    <span>arXiv</span>
+                    <span>arXiv (Coming Soon)</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled style="pointer-events: none; opacity: 0.7;">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -246,6 +246,21 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualization (Moved to Top) -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-nine-tenths">
+          <img src="./images/negative_false.png" class="interpolation-image"
+            alt="Problem of previous context diversification: query-agnostic mixing introduces false negatives." />
+          <p class="figure-caption">
+            Qualitative visualization: Our method accurately localizes target moments by preventing false negatives, while baseline models struggle with semantic confusion caused by background context.
+          </p>
         </div>
       </div>
     </div>
@@ -304,13 +319,6 @@
               This can generate <em>false negatives</em> when semantically related clips are mistakenly treated as negative examples.
             </p>
           </div>
-          <img src="./images/negative_false.png" class="interpolation-image"
-            alt="Problem of previous context diversification: query-agnostic mixing introduces false negatives." />
-          <p class="figure-caption">
-            Problem of previous context diversification.
-            Query-agnostic mixing can introduce false negatives when semantically related clips are
-            mistakenly used as replacement content.
-          </p>
         </div>
       </div>
     </div>
