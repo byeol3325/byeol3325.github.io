@@ -263,13 +263,15 @@
 
 .title {
   font-size: 1.1rem;
-  margin: 0 0 0.3rem 0;
+  margin: 0 0 1rem 0;
   color: #b0b0b0;
 }
 
-.research {
-  font-size: 1rem;
-  margin: 0 0 1rem 0;
+.titleDivider {
+  color: #555;
+}
+
+.titleRole {
   color: #90caf9;
   font-weight: 500;
 }
@@ -295,6 +297,46 @@
 .separator {
   color: #666;
   margin: 0 0.5rem;
+}
+
+/* Achievements Banner */
+.achievementsBanner {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.achievementsLabel {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  font-weight: 600;
+}
+
+.achievementBadges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.achievementBadge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  background: rgba(100, 181, 246, 0.06);
+  border: 1px solid rgba(100, 181, 246, 0.3);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #90caf9;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.achievementDivider {
+  color: #444;
+  font-size: 0.85rem;
 }
 
 /* About Section */
@@ -549,6 +591,26 @@
   color: #90caf9;
 }
 
+/* Project type subheadings */
+.projectSubheading {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  font-weight: 600;
+  margin: 1.5rem 0 0.6rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.researchProjectItem {
+  border-left-color: rgba(100, 181, 246, 0.55);
+}
+
+.researchProjectItem:hover {
+  border-left-color: #90caf9;
+}
+
 .moreProjects {
   margin-top: 1rem;
 }
@@ -700,5 +762,14 @@
 
   .projectDate {
     order: -1;
+  }
+
+  .achievementBadges {
+    gap: 0.4rem;
+  }
+
+  .achievementBadge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
   }
 }

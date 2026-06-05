@@ -6,8 +6,8 @@ export const introduction = {
   subtitle: 'A passionate AI Research Engineer in Korea.',
   description: [
     'I plan to continue uploading the projects I have done in the future.',
-    'I’m currently learning **multi-modal, multi-camera, lidar.**',
-    'I’m looking to collaborate on **everything about computer vision.**',
+    "I'm currently learning **multi-modal, multi-camera, lidar.**",
+    "I'm looking to collaborate on **everything about computer vision.**",
     'Ask me about **everything about me.**',
     'How to reach me **byul3325@naver.com or byul3325@gmail.com.**',
     'my github blog [git blog](https://byeol3325.github.io/).',
@@ -31,6 +31,7 @@ export const introduction = {
 
 export const projects = [
     {
+        type: 'research',
         title: 'CVA: Context-aware Video-text Alignment for Video Temporal Grounding',
         company: 'DGIST (CVPR 2026)',
         date: 'Sep 2025 - Dec 2025',
@@ -41,6 +42,7 @@ export const projects = [
         code: 'coming soon',
     },
     {
+        type: 'research',
         title: 'Amazon Grocery Vision Challenge (ICCV 2025)',
         company: 'Amazon & DGIST',
         date: 'Aug 2025 - Sep 2025',
@@ -52,6 +54,7 @@ export const projects = [
         reference_site: 'https://grocery-vision.github.io/',
     },
     {
+        type: 'industry',
         title: 'Real time 3D Reconstruction using Dental Scanner',
         company: 'Huvitz',
         date: 'Jun 2024 - Jul 2025',
@@ -62,6 +65,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Development of a 3D Pose Estimation and Shape Reconstruction Program for Solid Pharmaceuticals',
         company: 'ETRI',
         date: 'Sep 2024 - Dec 2024',
@@ -71,6 +75,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Algorithm Development for Automated Image Processing of Stereo Cameras',
         company: 'HD Korea Shipbuilding & Offshore Engineering',
         date: 'Sep 2024 - Nov 2024',
@@ -80,6 +85,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'R&D of AI Test and Evaluation Standard Model',
         company: 'ROKA Headquarters',
         date: 'Oct 2023 - Jun 2024',
@@ -89,6 +95,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Establishment of Test and Evaluation Standards for AI Weapon Systems',
         company: 'ROKA Headquarters, U.S. Department of Defense',
         date: 'Mar 2023 - Jun 2024',
@@ -98,6 +105,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Military Scientific Surveillance System',
         company: 'ROKA Headquarters',
         date: 'Mar 2023 - Sep 2023',
@@ -107,6 +115,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Development of Car Location and Speed Estimation Module Using CCTV Footage',
         company: 'ETRI',
         date: 'Aug 2022 - Dec 2022',
@@ -116,6 +125,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: 'Robust Monocular Camera 3D Object Detection in Various Camera Environments',
         company: 'Hyundai',
         date: 'Mar 2021 - Jun 2022',
@@ -125,6 +135,7 @@ export const projects = [
         blogUrl: null,
     },
     {
+        type: 'industry',
         title: '3D Building Exterior Reconstruction',
         company: 'KETI',
         date: 'Aug 2020 - Dec 2020',
@@ -166,7 +177,7 @@ export const papers = [
         title: 'My Awesome Paper',
         journal: 'Conference on Computer Vision and Pattern Recognition (CVPR), 2025',
         url: 'https://example.com/path/to/paper.pdf',
-        description: 'This paper introduces a revolutionary new method for...' 
+        description: 'This paper introduces a revolutionary new method for...'
     },
     */
 ];
