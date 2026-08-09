@@ -216,6 +216,7 @@ function Resume() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>News</h2>
           <ul className={styles.newsList}>
+            <li><strong>Aug 2026:</strong> <strong>Paper accepted</strong> to <strong>IEEE Signal Processing Letters (SPL)</strong>: "Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection"</li>
             <li><strong>Mar 2026:</strong> <strong>Paper accepted</strong> at <strong>CVPR 2026</strong>: "CVA: Context-aware Video-text Alignment for Video Temporal Grounding"</li>
             <li><strong>Sep 2025:</strong> <strong>Won 1st Place</strong> in <strong>ICCV 2025</strong> Amazon Grocery Vision Challenge (TAL &amp; STAL tracks)</li>
             <li><strong>Jul 2025:</strong> <strong>Completed projects</strong> with <strong>Huvitz</strong> on real-time 3D reconstruction using LCD, PGO</li>

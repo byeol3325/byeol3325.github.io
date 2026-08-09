@@ -39,7 +39,7 @@ export const projects = [
         role: 'Co-first Author (50% contribution) - Developed the overall CVA framework and implemented the core methodology (QCD, CBD, CTE). Conducted extensive experiments and ablation studies.',
         achievement: 'Achieved State-of-the-Art performance on three major benchmarks: QVHighlights, Charades-STA, and TACoS. Paper accepted to CVPR 2026.',
         blogUrl: '/projects/CVA/',
-        code: 'coming soon',
+        code: 'https://github.com/byeol3325/CVA_cvpr',
     },
     {
         type: 'research',
@@ -50,7 +50,7 @@ export const projects = [
         role: 'Lead Researcher (Solo) - Designed and implemented multi-modal fusion architecture combining video, audio, and contextual information for precise action detection and localization in retail environments.',
         achievement: 'Achieved 1st place in both TAL and STAL tracks within just 1 month of development. Successfully deployed multi-modal model achieving state-of-the-art performance on Amazon grocery dataset.',
         blogUrl: '/projects/ICCV2025/',
-        code: 'coming soon',
+        code: 'https://github.com/byeol3325/iccv25Grocery-Vision-Challenge_1st',
         reference_site: 'https://grocery-vision.github.io/',
     },
     {
@@ -149,12 +149,20 @@ export const projects = [
 // You can add your paper data here.
 export const papers = [
     {
+        title: 'Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection',
+        authors: 'Sungho Moon*, Jaeyeul Kim*, Wonhyeok Choi, Jihun Park, Ukcheol Shin†, Sunghoon Im†',
+        journal: 'IEEE Signal Processing Letters (SPL)',
+        description: 'Proposed an object-centric LiDAR-to-radar distillation framework consisting of Object-Wise Gaussian Distillation and Density-Aware Curriculum Weighting, which transfer object-level semantics instead of dense voxel-level features. Surpasses RadarDistill by 32.1% in relative mAP on the nuScenes dataset.',
+        url: '#',
+        github: 'coming soon',
+    },
+    {
         title: 'CVA: Context-aware Video-text Alignment for Video Temporal Grounding',
         authors: 'Sungho Moon*, Seunghun Lee*, Jiwan Seo, Sunghoon Im†',
         journal: 'CVPR 2026',
         description: 'Proposed a context-aware framework for video temporal grounding with Query-aware Context Diversification, Context-invariant Boundary Discrimination loss, and Context-enhanced Transformer Encoder. Achieved SOTA on QVHighlights, Charades-STA, and TACoS.',
-        url: '#',
-        github: 'coming soon',
+        url: 'https://arxiv.org/abs/2603.24934',
+        github: 'https://github.com/byeol3325/CVA_cvpr',
     },
     {
         title: 'Rotation Matters: Generalized Monocular 3D Object Detection for Various Camera Systems',
